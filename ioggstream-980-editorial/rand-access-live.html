@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>HTTP Random Access and Live Content</title><script>
+function anchorRewrite() {
+  map = { };
+  if (window.location.hash.length >= 1) {
+    var fragid = window.location.hash.substr(1);
+    if (fragid) {
+      if (! document.getElementById(fragid)) {
+        var prefix = "rfc.";
+        var mapped = map[fragid];
+        if (mapped) {
+          window.location.hash = mapped;
+        } else if (fragid.indexOf("section-") == 0) {
+          window.location.hash = prefix + "section." + fragid.substring(8);
+        } else if (fragid.indexOf("appendix-") == 0) {
+          window.location.hash = prefix + "section." + fragid.substring(9);
+        } else if (fragid.indexOf("s-") == 0) {
+          var postfix = fragid.substring(2);
+          if (postfix.startsWith("abstract")) {
+            window.location.hash = prefix + postfix;
+          } else if (postfix.startsWith("note-")) {
+            window.location.hash = prefix + "note." + postfix.substring(5);
+          } else {
+            window.location.hash = prefix + "section." + postfix;
+          }
+        } else if (fragid.indexOf("p-") == 0) {
+          var r = fragid.substring(2);
+          var p = r.indexOf("-");
+          if (p >= 0) {
+            window.location.hash = prefix + "section." + r.substring(0, p) + ".p." + r.substring(p + 1);
+          }
+        }
+      }
+    }  
+  }
+}
+window.addEventListener('hashchange', anchorRewrite);
+window.addEventListener('DOMContentLoaded', anchorRewrite);
+</script><!--Specified as xml2rfc-ext-css-contents--><style>
+body {
+  font: 16px "Helvetica Neue","Open Sans",Helvetica,Calibri,sans-serif;
+  color: #333;
+  font-size-adjust: 0.5;
+  line-height: 24px;
+  margin: 75px auto;
+  max-width: 624px;
+  padding: 0 5px;
+}
+
+.title, .filename, h1, h2, h3, h4, h5 {
+  font: 16px "Roboto Condensed","Helvetica Neue","Open Sans",Helvetica,Calibri,sans-serif;
+  font-size-adjust: 0.5;
+  font-weight: bold;
+  color: #333;
+  line-height: 100%;
+  margin: 1.2em 0 0.3em;
+}
+.title, #rfc\.title h1 { font-size: 32px; }
+h1, section h1, h2, section h2, section h3, nav h2 { font-size: 20px; }
+h3, section h4, h4, section h5 { font-size: 16px; }
+h1 a[href], h2 a[href], h3 a[href], h4 a[href] {
+  color: #333;
+}
+
+table {
+  margin-left: 0em;
+  border-collapse: collapse;
+}
+th {
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+}
+td {
+  border-top: 1px solid #ddd;
+  vertical-align: top;
+}
+tr:nth-child(2n+1) > td,
+tr:nth-child(2n+1) > th {
+  background-color: #f9f9f9;
+}
+td.reference {
+  max-width: 200px;
+  border-top: none;
+  padding-right: 1em;
+}
+.right {
+  text-align: right;
+}
+
+
+table.header, table#rfc\.headerblock {
+  width: 100%;
+}
+table.header td, table#rfc\.headerblock td {
+  border: none;
+  background-color: transparent;
+  color: black;
+  padding: 0;
+}
+.filename {
+  display: block;
+  color: rgb(119, 119, 119);
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 100%;
+  margin: 10px 0 32px;
+}
+#rfc\.abstract+p, #rfc\.abstract+p code, #rfc\.abstract+p samp, #rfc\.abstract+p tt {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+samp, tt, code, pre, span.tt {
+  font-size: 13.5px;
+  font-family: Consolas, monospace;
+  font-size-adjust: none;
+}
+pre {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  overflow-x: auto;
+  padding: 5px;
+  margin: 5px;
+}
+.figure, caption {
+  font-style: italic;
+  margin: 0 1.5em;
+  text-align: left;
+}
+
+address {
+  margin: 16px 2px;
+  line-height: 20px;
+}
+.vcard {
+  font-style: normal;
+}
+.vcardline {
+  display: block;
+}
+.vcardline .fn, address b {
+  font-weight: normal;
+}
+.vcardline .hidden {
+  display: none;
+}
+
+dl {
+  margin-left: 1em;
+}
+dl.dl-horizontal: {
+  margin-left: 0;
+}
+dl > dt {
+  float: left;
+  margin-right: 1em;
+}
+dl.nohang > dt {
+  float: none;
+}
+dl > dd {
+  margin-bottom: .5em;
+}
+dl.compact > dd {
+  margin-bottom: 0em;
+}
+dl > dd > dl {
+  margin-top: 0.5em;
+  margin-bottom: 0em;
+}
+ul.empty {
+  list-style-type: none;
+}
+ul.empty li {
+  margin-top: .5em;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #eee;
+}
+hr.noprint {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+a[href] {
+  color: #2a6496;
+}
+a[href]:hover {
+  background-color: #eee;
+}
+
+p, ol, ul, li {
+  padding: 0;
+}
+p {
+  margin: 0.5em 0;
+}
+ol, ul {
+  margin: 0.2em 0 0.2em 2em;
+}
+li {
+  margin: 0.2em 0;
+}
+address {
+  font-style: normal;
+}
+
+ul.toc ul {
+  margin: 0 0 0 2em;
+}
+ul.toc li {
+  list-style: none;
+  margin: 0;
+}
+
+@media screen and (min-width: 924px) {
+  body {
+    padding-right: 350px;
+  }
+  body>ul.toc, body>#rfc\.toc {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    right: calc(50vw - 500px);
+    width: 300px;
+    z-index: 1;
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
+  body>#rfc\.toc {
+    top: 55px;
+  }
+  body>ul.toc {
+    top: 100px;
+  }
+
+  ul.toc {
+    margin: 0 0 0 4px;
+    font-size: 12px;
+    line-height: 20px;
+  }
+  ul.toc ul {
+    margin-left: 1.2em;
+  }
+}</style><link rel="Contents" href="#rfc.toc"><link rel="Author" href="#rfc.authors"><link rel="License" href="#rfc.copyrightnotice"><link rel="Chapter" title="1 Introduction" href="#rfc.section.1"><link rel="Chapter" title='2 Performing Range requests on Random-Access Aggregating ("live") Content' href="#rfc.section.2"><link rel="Chapter" title="3 Other Applications of Random-Access Aggregating Content" href="#rfc.section.3"><link rel="Chapter" title="4 Recommendations for Very Large Values" href="#rfc.section.4"><link rel="Chapter" title="5 IANA Considerations" href="#rfc.section.5"><link rel="Chapter" title="6 Security Considerations" href="#rfc.section.6"><link rel="Chapter" title="7 References" href="#rfc.section.7"><link rel="Appendix" title="Acknowledgements" href="#rfc.section.unnumbered-1"><meta name="viewport" content="initial-scale=1"><meta name="generator" content="http://greenbytes.de/tech/webdav/rfc2629.xslt, Revision 1.1233, 2019/11/18 07:26:45, XSLT vendor: libxslt http://xmlsoft.org/XSLT/"><meta name="keywords" content="http range unit live aggregation"><link rel="schema.dcterms" href="http://purl.org/dc/terms/"><meta name="dcterms.creator" content="Pratt, C."><meta name="dcterms.creator" content="Thakore, D."><meta name="dcterms.creator" content="Stark, B.H."><meta name="dcterms.issued" content="2019-03"><meta name="dcterms.abstract" content="To accommodate byte range requests for content that has data appended over time, this document defines semantics that allow a HTTP client and server to perform byte-range GET and HEAD requests that start at an arbitrary byte offset within the representation and ends at an indeterminate offset."><meta name="description" content="To accommodate byte range requests for content that has data appended over time, this document defines semantics that allow a HTTP client and server to perform byte-range GET and HEAD requests that start at an arbitrary byte offset within the representation and ends at an indeterminate offset."></head><body><header><table class="header" id="rfc.headerblock"><tbody><tr><td class="left">HTTP Working Group</td><td class="right">C. Pratt</td></tr><tr><td class="left">Internet-Draft</td><td class="right">D. Thakore</td></tr><tr><td class="left">Intended status: Experimental</td><td class="right">CableLabs</td></tr><tr><td class="left">Expires: September 2019</td><td class="right">B. Stark</td></tr><tr><td class="left"></td><td class="right">AT&amp;T</td></tr><tr><td class="left"></td><td class="right">March 2019</td></tr></tbody></table><div id="rfc.title"><h1>HTTP Random Access and Live Content</h1><div class="filename"><a href="https://datatracker.ietf.org/doc/draft-ietf-httpbis-rand-access-live" class="smpl">draft-ietf-httpbis-rand-access-live-latest</a></div></div></header><section><h2 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h2><div id="rfc.abstract.p.1"><p>To accommodate byte range requests for content that has data appended over time, this document defines semantics that allow a HTTP client and server to perform byte-range GET and HEAD requests that start at an arbitrary byte offset within the representation and ends at an indeterminate offset.</p></div></section><section class="note"><h2 id="rfc.note.1"><a href="#rfc.note.1">Editorial Note (To be removed by RFC Editor before publication)</a></h2><div id="rfc.note.1.p.1"><p>Discussion of this draft takes place on the HTTPBIS working group mailing list (ietf-http-wg@w3.org), which is archived at &lt;<a href="https://lists.w3.org/Archives/Public/ietf-http-wg/">https://lists.w3.org/Archives/Public/ietf-http-wg/</a>&gt;.</p></div><div id="rfc.note.1.p.2"><p>Working Group information can be found at &lt;<a href="http://httpwg.github.io/">http://httpwg.github.io/</a>&gt;; source code and issues list for this draft can be found at &lt;<a href="https://github.com/httpwg/http-extensions/labels/rand-access-live">https://github.com/httpwg/http-extensions/labels/rand-access-live</a>&gt;.</p></div></section><section id="rfc.status"><h2><a href="#rfc.status">Status of this Memo</a></h2><div id="rfc.boilerplate.1.p.1"><p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p></div><div id="rfc.boilerplate.1.p.2"><p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF). Note that other groups may also distribute working documents as Internet-Drafts. The list of current Internet-Drafts is at <a href="http://datatracker.ietf.org/drafts/current/">http://datatracker.ietf.org/drafts/current/</a>.</p></div><div id="rfc.boilerplate.1.p.3"><p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time. It is inappropriate to use Internet-Drafts as reference material or to cite them other than as “work in progress”.</p></div><div id="rfc.boilerplate.1.p.4"><p>This Internet-Draft will expire in September 2019.</p></div></section><section id="rfc.copyrightnotice"><h2><a href="#rfc.copyrightnotice">Copyright Notice</a></h2><div id="rfc.boilerplate.2.p.1"><p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors. All rights reserved.</p></div><div id="rfc.boilerplate.2.p.2"><p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (<a href="http://trustee.ietf.org/license-info">http://trustee.ietf.org/license-info</a>) in effect on the date of publication of this document. Please review these documents carefully, as they describe your rights and restrictions with respect to this document. Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p></div></section><hr class="noprint"><nav id="rfc.toc"><h2 class="np"><a href="#rfc.toc">Table of Contents</a></h2><ul class="toc"><li><a href="#rfc.section.1">1.</a>   <a href="#introduction">Introduction</a><ul><li><a href="#rfc.section.1.1">1.1.</a>   <a href="#rfc.section.1.1">Requirements Language</a></li><li><a href="#rfc.section.1.2">1.2.</a>   <a href="#rfc.section.1.2">Notational Conventions</a></li></ul></li><li><a href="#rfc.section.2">2.</a>   <a href="#definition">Performing Range requests on Random-Access Aggregating ("live") Content</a><ul><li><a href="#rfc.section.2.1">2.1.</a>   <a href="#establishing-range">Establishing the Randomly Accessible Byte Range</a></li><li><a href="#rfc.section.2.2">2.2.</a>   <a href="#live-range-requests">Byte-Range Requests Beyond the Randomly Accessible Byte Range</a></li></ul></li><li><a href="#rfc.section.3">3.</a>   <a href="#other-applications">Other Applications of Random-Access Aggregating Content</a><ul><li><a href="#rfc.section.3.1">3.1.</a>   <a href="#starting-at-live">Requests Starting at the Aggregation ("Live") Point</a></li><li><a href="#rfc.section.3.2">3.2.</a>   <a href="#shift-buffers">Shift Buffer Representations</a></li></ul></li><li><a href="#rfc.section.4">4.</a>   <a href="#RecommendedVLV">Recommendations for Very Large Values</a></li><li><a href="#rfc.section.5">5.</a>   <a href="#IANA">IANA Considerations</a></li><li><a href="#rfc.section.6">6.</a>   <a href="#Security">Security Considerations</a></li><li><a href="#rfc.section.7">7.</a>   <a href="#rfc.references">References</a><ul><li><a href="#rfc.section.7.1">7.1.</a>   <a href="#rfc.references.1">Normative References</a></li><li><a href="#rfc.section.7.2">7.2.</a>   <a href="#rfc.references.2">Informative References</a></li></ul></li><li><a href="#Acknowledgements">Acknowledgements</a></li><li><a href="#rfc.authors">Authors' Addresses</a></li></ul></nav><section id="introduction"><h2 id="rfc.section.1" class="np"><a href="#rfc.section.1">1.</a> <a href="#introduction">Introduction</a></h2><div id="rfc.section.1.p.1"><p>Some Hypertext Transfer Protocol (HTTP) clients use byte-range requests (Range requests using the "bytes" Range Unit) to transfer select portions of large representations (<a href="#RFC7233"><cite title="Hypertext Transfer Protocol (HTTP/1.1): Range Requests">[RFC7233]</cite></a>). And in some cases large representations require content to be continuously or periodically appended - such as representations consisting of live audio or video sources, blockchain databases, and log files. Clients cannot access the appended/live content using a Range request with the bytes range unit using the currently defined byte-range semantics without accepting performance or behavior sacrifices which are not acceptable for many applications.</p></div><div id="rfc.section.1.p.2"><p>For instance, HTTP clients have the ability to access appended content on an indeterminate-length resource by transferring the entire representation from the beginning and continuing to read the appended content as it's made available. Obviously, this is highly inefficient for cases where the representation is large and only the most recently appended content is needed by the client.</p></div><div id="rfc.section.1.p.3"><p>Alternatively, clients can also access appended content by sending periodic open-ended bytes Range requests using the last-known end byte position as the range start. Performing low-frequency periodic bytes Range requests in this fashion (polling) introduces latency since the client will necessarily be somewhat behind the aggregated content - mimicking the behavior (and latency) of segmented content representations such as "HTTP Live Streaming" (HLS, <a href="#RFC8216"><cite title="HTTP Live Streaming">[RFC8216]</cite></a>) or "Dynamic Adaptive Streaming over HTTP" (MPEG-DASH, <a href="#DASH"><cite title="Information technology -- Dynamic adaptive streaming over HTTP (DASH) -- Part 1: Media presentation description and segment formats">[DASH]</cite></a>). And while performing these Range requests at higher frequency can reduce this latency, it also incurs more processing overhead and HTTP exchanges as many of the requests will return no content - since content is usually aggregated in groups of bytes (e.g. a video frame, audio sample, block, or log entry).</p></div><div id="rfc.section.1.p.4"><p>This document describes a usage model for range requests which enables efficient retrieval of representations that are appended to over time by using large values and associated semantics for communicating range end positions. This model allows representations to be progressively delivered by servers as new content is added. It also ensures compatibility with servers and intermediaries that don't support this technique.</p></div><section id="n-requirements-language"><h3 id="rfc.section.1.1"><a href="#rfc.section.1.1">1.1.</a> <a href="#n-requirements-language">Requirements Language</a></h3><div id="rfc.section.1.1.p.1"><p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="#RFC2119">RFC 2119</a> <cite title="Key words for use in RFCs to Indicate Requirement Levels">[RFC2119]</cite>.</p></div></section><section id="n-notational-conventions"><h3 id="rfc.section.1.2"><a href="#rfc.section.1.2">1.2.</a> <a href="#n-notational-conventions">Notational Conventions</a></h3><div id="rfc.section.1.2.p.1"><p>This document cites productions in Augmented Backus-Naur Form (ABNF) productions from <a href="#RFC7233"><cite title="Hypertext Transfer Protocol (HTTP/1.1): Range Requests">[RFC7233]</cite></a>, using the notation defined in <a href="#RFC5234"><cite title="Augmented BNF for Syntax Specifications: ABNF">[RFC5234]</cite></a>.</p></div></section></section><section id="definition"><h2 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#definition">Performing Range requests on Random-Access Aggregating ("live") Content</a></h2><div id="rfc.section.2.p.1"><p>This document recommends a two-step process for accessing resources that have indeterminate length representations.</p></div><div id="rfc.section.2.p.2"><p>Two steps are necessary because of limitations with the Range request header fields and the Content-Range response header fields. A server cannot know from a range request that a client wishes to receive a response that does not have a definite end. More critically, the header fields do not allow the server to signal that a resource has indeterminate length without also providing a fixed portion of the resource.</p></div><div id="rfc.section.2.p.3"><p>A client first learns that the resource has a representation of indeterminate length by requesting a range of the resource. The server responds with the range that is available, but indicates that the length of the representation is unknown using the existing Content-Range syntax. See <a href="#establishing-range" title="Establishing the Randomly Accessible Byte Range">Section 2.1</a> for details and examples.</p></div><div id="rfc.section.2.p.4"><p>Once the client knows the resource has indeterminate length, it can request a range with a very large end position from the resource. The client chooses an explicit end value larger than can be transferred in the foreseeable term. A server which supports range requests of indeterminate length signals its understanding of the client's indeterminate range request by indicating that the range it is providing has a range end that exactly matches the client's requested range end rather than a range that is bounded by what is currently available. See <a href="#live-range-requests" title="Byte-Range Requests Beyond the Randomly Accessible Byte Range">Section 2.2</a> for details.</p></div><section id="establishing-range"><h3 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#establishing-range">Establishing the Randomly Accessible Byte Range</a></h3><div id="rfc.section.2.1.p.1" class="avoidbreakafter"><p>Establishing if a representation is continuously aggregating ("live") and determining the randomly-accessible byte range can both be determined using the existing definition for an open-ended byte-range request. Specifically, <a href="https://tools.ietf.org/html/rfc7233#section-2.1">Section 2.1</a> of <a href="#RFC7233"><cite title="Hypertext Transfer Protocol (HTTP/1.1): Range Requests">[RFC7233]</cite></a> defines a byte-range request of the form:</p></div><div id="rfc.figure.u.1"><div><pre class="inline">
+   byte-range-spec = first-byte-pos "-" [ last-byte-pos ]
+</pre></div></div><div id="rfc.section.2.1.p.2" class="avoidbreakafter"><p>which allows a client to send a HEAD request with a first-byte-pos and leave last-byte-pos absent. A server that receives a satisfiable byte-range request (with first-byte-pos smaller than the current representation length) may respond with a 206 status code (Partial Content) with a Content-Range header field indicating the currently satisfiable byte range. For example:</p></div><div id="rfc.figure.u.2"><div><pre class="text2">
+HEAD /resource HTTP/1.1
+Host: example.com
+Range: bytes=0-
+
+</pre></div></div><div id="rfc.section.2.1.p.3" class="avoidbreakafter"><p>returns a response of the form:</p></div><div id="rfc.figure.u.3"><div><pre class="text">
+HTTP/1.1 206 Partial Content
+Content-Range: bytes 0-1234567/*
+</pre></div></div><div id="rfc.section.2.1.p.4"><p>from the server indicating that (1) the complete representation length is unknown (via the "*" in place of the complete-length field) and (2) that only bytes 0-1234567 were accessible at the time the request was processed by the server. The client can infer from this response that bytes 0-1234567 of the representation can be requested and returned in a timely fashion (the bytes are immediately available).</p></div></section><section id="live-range-requests"><h3 id="rfc.section.2.2"><a href="#rfc.section.2.2">2.2.</a> <a href="#live-range-requests">Byte-Range Requests Beyond the Randomly Accessible Byte Range</a></h3><div id="rfc.section.2.2.p.1"><p>Once a client has determined that a representation has an indeterminate length and established the byte range that can be accessed, it may want to perform a request with a start position within the randomly-accessible content range and an end position at an indefinite "live" point - a point where the byte-range GET request is fulfilled on-demand as the content is aggregated.</p></div><div id="rfc.section.2.2.p.2"><p>For example, for a large video asset, a client may wish to start a content transfer from the video "key" frame immediately before the point of aggregation and continue the content transfer indefinitely as content is aggregated - in order to support low-latency startup of a live video stream.</p></div><div id="rfc.section.2.2.p.3" class="avoidbreakafter"><p>Unlike a byte-range Range request, a byte-range Content-Range response header field cannot be "open ended", per <a href="https://tools.ietf.org/html/rfc7233#section-4.2">Section 4.2</a> of <a href="#RFC7233"><cite title="Hypertext Transfer Protocol (HTTP/1.1): Range Requests">[RFC7233]</cite></a>:</p></div><div id="rfc.figure.u.4"><div><pre class="inline">
+   byte-content-range  = bytes-unit SP
+                        ( byte-range-resp / unsatisfied-range )
+
+   byte-range-resp     = byte-range "/" ( complete-length / "*" )
+   byte-range          = first-byte-pos "-" last-byte-pos
+   unsatisfied-range   = "*/" complete-length
+
+   complete-length     = 1*DIGIT
+</pre></div></div><div id="rfc.section.2.2.p.4"><p>Specifically, last-byte-pos is required in byte-range. So in order to preserve interoperability with existing HTTP clients, servers, proxies, and caches, this document proposes a mechanism for a client to indicate support for handling an indeterminate-length byte-range response, and a mechanism for a server to indicate if/when it's providing an indeterminate-length response.</p></div><div id="rfc.section.2.2.p.5" class="avoidbreakafter"><p>A client can indicate support for handling indeterminate-length byte-range responses by providing a very large value for the last-byte-pos in the byte-range request. For example, a client can perform a byte-range GET request of the form:</p></div><div id="rfc.figure.u.5"><div><pre class="text2">
+GET /resource HTTP/1.1
+Host: example.com
+Range: bytes=1230000-999999999999
+
+</pre></div></div><div id="rfc.section.2.2.p.6"><p>where the last-byte-pos in the Request is much larger than the last-byte-pos returned in response to an open-ended byte-range HEAD request, as described above, and much larger than the expected maximum size of the representation. See <a href="#Security" title="Security Considerations">Section 6</a> for range value considerations.</p></div><div id="rfc.section.2.2.p.7"><p>In response, a server may indicate that it is supplying a continuously aggregating ("live") response by supplying the client request's last-byte-pos in the Content-Range response header field.</p></div><div id="rfc.section.2.2.p.8" class="avoidbreakafter"><p>For example:</p></div><div id="rfc.figure.u.6"><div><pre class="text2">
+GET /resource HTTP/1.1
+Host: example.com
+Range: bytes=1230000-999999999999
+
+</pre></div></div><div id="rfc.section.2.2.p.9"><p>returns</p></div><div id="rfc.figure.u.7"><div><pre class="text">
+HTTP/1.1 206 Partial Content
+Content-Range: bytes 1230000-999999999999/*
+</pre></div></div><div id="rfc.section.2.2.p.10"><p>from the server to indicate that the response will start at byte 1230000 and continues indefinitely to include all aggregated content, as it becomes available.</p></div><div id="rfc.section.2.2.p.11"><p>A server that doesn't support or supply a continuously aggregating ("live") response will supply the currently satisfiable byte range, as it would with an open-ended byte request.</p></div><div id="rfc.section.2.2.p.12" class="avoidbreakafter"><p>For example:</p></div><div id="rfc.figure.u.8"><div><pre class="text2">
+GET /resource HTTP/1.1
+Host: example.com
+Range: bytes=1230000-999999999999
+
+</pre></div></div><div id="rfc.section.2.2.p.13"><p>will return</p></div><div id="rfc.figure.u.9"><div><pre class="text">
+HTTP/1.1 206 Partial Content
+Content-Range: bytes 1230000-1234567/*
+</pre></div></div><div id="rfc.section.2.2.p.14"><p>from the server to indicate that the response will start at byte 1230000 and end at byte 1234567 and will not include any aggregated content. This is the response expected from a typical HTTP server - one that doesn't support byte-range requests on aggregating content.</p></div><div id="rfc.section.2.2.p.15"><p>A client that doesn't receive a response indicating it is continuously aggregating must use other means to access aggregated content (e.g. periodic byte-range polling).</p></div><div id="rfc.section.2.2.p.16"><p>A server that does return a continuously aggregating ("live") response should return data using chunked transfer coding and not provide a Content-Length header field. A 0-length chunk indicates the end of the transfer, per <a href="https://tools.ietf.org/html/rfc7230#section-4.1">Section 4.1</a> of <a href="#RFC7230"><cite title="Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing">[RFC7230]</cite></a>.</p></div></section></section><section id="other-applications"><h2 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#other-applications">Other Applications of Random-Access Aggregating Content</a></h2><section id="starting-at-live"><h3 id="rfc.section.3.1"><a href="#rfc.section.3.1">3.1.</a> <a href="#starting-at-live">Requests Starting at the Aggregation ("Live") Point</a></h3><div id="rfc.section.3.1.p.1" class="avoidbreakafter"><p>A client that wishes to only receive newly-aggregated portions of a resource (i.e., start at the "live" point), can use a HEAD request to learn what range the server has currently available and initiate an indeterminate-length transfer. For example:</p></div><div id="rfc.figure.u.10"><div><pre class="text2">
+HEAD /resource HTTP/1.1
+Host: example.com
+Range: bytes=0-
+
+</pre></div></div><div id="rfc.section.3.1.p.2" class="avoidbreakafter"><p>With the Content-Range response header field indicating the range (or ranges) available. For example:</p></div><div id="rfc.figure.u.11"><div><pre class="text">
+206 Partial Content
+Content-Range: bytes 0-1234567/*
+</pre></div></div><div id="rfc.section.3.1.p.3"><p>The client can then issue a request for a range starting at the end value (using a very large value for the end of a range) and receive only new content.</p></div><div id="rfc.figure.u.12"><div><pre class="text2">
+GET /resource HTTP/1.1
+Host: example.com
+Range: bytes=1234567-999999999999
+
+</pre></div></div><div id="rfc.section.3.1.p.4"><p>with a server returning a Content-Range response indicating that an indeterminate-length response body will be provided</p></div><div id="rfc.figure.u.13"><div><pre class="text">
+206 Partial Content
+Content-Range: bytes 1234567-999999999999/*
+</pre></div></div></section><section id="shift-buffers"><h3 id="rfc.section.3.2"><a href="#rfc.section.3.2">3.2.</a> <a href="#shift-buffers">Shift Buffer Representations</a></h3><div id="rfc.section.3.2.p.1"><p>Some representations lend themselves to front-end content removal in addition to aggregation. While still supporting random access, representations of this type have a portion at the beginning (the "0" end) of the randomly-accessible region that become inaccessible over time. Examples of this kind of representation would be an audio-video time-shift buffer or a rolling log file.</p></div><div id="rfc.section.3.2.p.2" class="avoidbreakafter"><p>For example a Range request containing:</p></div><div id="rfc.figure.u.14"><div><pre class="text2">
+HEAD /resource HTTP/1.1
+Host: example.com
+Range: bytes=0-
+
+</pre></div></div><div id="rfc.section.3.2.p.3"><p>returns</p></div><div id="rfc.figure.u.15"><div><pre class="text">
+206 Partial Content
+Content-Range: bytes 1000000-1234567/*
+</pre></div></div><div id="rfc.section.3.2.p.4" class="avoidbreakafter"><p>indicating that the first 1000000 bytes were not accessible at the time the HEAD request was processed. Subsequent HEAD requests could return:</p></div><div id="rfc.figure.u.16"><div><pre class="text">
+Content-Range: bytes 1000000-1234567/*
+</pre></div></div><div id="rfc.figure.u.17"><div><pre class="text">
+Content-Range: bytes 1010000-1244567/*
+</pre></div></div><div id="rfc.figure.u.18"><div><pre class="text">
+Content-Range: bytes 1020000-1254567/*
+</pre></div></div><div id="rfc.section.3.2.p.5"><p>Note though that the difference between the first-byte-pos and last-byte-pos need not be constant.</p></div><div id="rfc.section.3.2.p.6"><p>The client could then follow-up with a GET Range request containing</p></div><div id="rfc.figure.u.19"><div><pre class="text2">
+GET /resource HTTP/1.1
+Host: example.com
+Range: bytes=1020000-999999999999
+
+</pre></div></div><div id="rfc.section.3.2.p.7"><p>with the server returning</p></div><div id="rfc.figure.u.20"><div><pre class="text">
+206 Partial Content
+Content-Range: bytes 1020000-999999999999/*
+</pre></div></div><div id="rfc.section.3.2.p.8"><p>with the response body returning bytes 1020000-1254567 immediately and aggregated ("live") data being returned as the content is aggregated.</p></div><div id="rfc.section.3.2.p.9"><p>A server that doesn't support or supply a continuously aggregating ("live") response will supply the currently satisfiable byte range, as it would with an open-ended byte request.</p></div><div id="rfc.section.3.2.p.10" class="avoidbreakafter"><p>For example:</p></div><div id="rfc.figure.u.21"><div><pre class="text2">
+GET /resource HTTP/1.1
+Host: example.com
+Range: bytes=0-999999999999
+
+</pre></div></div><div id="rfc.section.3.2.p.11"><p>will return</p></div><div id="rfc.figure.u.22"><div><pre class="text">
+HTTP/1.1 206 Partial Content
+Content-Range: bytes 1020000-1254567/*
+</pre></div></div><div id="rfc.section.3.2.p.12"><p>from the server to indicate that the response will start at byte 1020000, end at byte 1254567, and will not include any aggregated content. This is the response expected from a typical HTTP server - one that doesn't support byte-range requests on aggregating content.</p></div><div id="rfc.section.3.2.p.13"><p>Note that responses to GET requests against shift-buffer representations using Range can be cached by intermediaries, since the Content-Range response header indicates which portion of the representation is being returned in the response body. However GET requests without a Range header cannot be cached since the first byte of the response body can vary from request to request. To ensure Range-less GET requests against shift-buffer representations are not cached, servers hosting a shift-buffer representation should either not return a 200-level response (e.g. sending a 300-level redirect response with a URI that represents the current start of the shift-buffer) or indicate the response is non-cacheable. See HTTP Caching (<a href="#RFC7234"><cite title="Hypertext Transfer Protocol (HTTP/1.1): Caching">[RFC7234]</cite></a>) for details on HTTP cache control.</p></div></section></section><section id="RecommendedVLV"><h2 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#RecommendedVLV">Recommendations for Very Large Values</a></h2><div id="rfc.section.4.p.1"><p>While it would be ideal to define a single numerical Very Large Value, there's no single value that would work for all applications and platforms. e.g. JavaScript numbers cannot represent all integer values above 2^^53, so a JavaScript application may want to use 2^^53-1 for a Very Large Value. This value, however, would not be sufficient for all applications, such as continuously-streaming high-bitrate streams. So the value 2^^53-1 (9007199254740991) is recommended as a Very Large Value unless an application has a good justification to use a smaller or larger value. e.g. If it's always known that the resource won't exceed a value smaller than the recommended Very Large Value for an application, a smaller value can be used. And if it's likely that an application will utilize resources larger than the recommended Very Large Value - such as a continuously aggregating high-bitrate media stream - a larger value should be used.</p></div><div id="rfc.section.4.p.2"><p>Note that, in accordance with the semantics defined above, servers that support random-access live content will need to return the last-byte-pos provided in the Range request in some cases - even if the last-byte-pos cannot be represented as a numerical value internally by the server. As is the case with any live/continuously aggregating resource, the server should terminate the content transfer when the end of the resource is reached - whether the end is due to termination of the content source or the content length exceeds the server's maximum representation length.</p></div></section><section id="IANA"><h2 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#IANA">IANA Considerations</a></h2><div id="rfc.section.5.p.1"><p>This document has no actions for IANA.</p></div></section><section id="Security"><h2 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#Security">Security Considerations</a></h2><div id="rfc.section.6.p.1"><p>As described above, servers need to be prepared to receive last-byte-pos values in Range requests that are numerically larger than the server implementation supports - and return these values in Content-Range response header fields. Servers should check the last-byte-pos value before converting and storing them into numeric form to ensure the value doesn't cause an overflow or index incorrect data. The simplest way to satisfy the live-range semantics defined in this document without potential overflow issues is to store the last-byte-pos as a string value and return it in the byte-range Content-Range response header's last-byte-pos field.</p></div></section><section id="rfc.references"><h2 id="rfc.section.7"><a href="#rfc.section.7">7.</a> References</h2><section><div id="rfc.references.1"><h3 id="rfc.section.7.1"><a href="#rfc.section.7.1">7.1.</a> Normative References</h3><dl class="reference"><dt id="RFC2119">[RFC2119]</dt><dd>Bradner, S., “<a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>”, BCP 14, RFC 2119, <a href="http://dx.doi.org/10.17487/RFC2119">DOI 10.17487/RFC2119</a>, March 1997, &lt;<a href="https://www.rfc-editor.org/info/rfc2119">https://www.rfc-editor.org/info/rfc2119</a>&gt;.</dd><dt id="RFC7230">[RFC7230]</dt><dd>Fielding, R., Ed. and J. Reschke, Ed., “<a href="https://tools.ietf.org/html/rfc7230">Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing</a>”, RFC 7230, <a href="http://dx.doi.org/10.17487/RFC7230">DOI 10.17487/RFC7230</a>, June 2014, &lt;<a href="https://www.rfc-editor.org/info/rfc7230">https://www.rfc-editor.org/info/rfc7230</a>&gt;.</dd><dt id="RFC7233">[RFC7233]</dt><dd>Fielding, R., Ed., Lafon, Y., Ed., and J. Reschke, Ed., “<a href="https://tools.ietf.org/html/rfc7233">Hypertext Transfer Protocol (HTTP/1.1): Range Requests</a>”, RFC 7233, <a href="http://dx.doi.org/10.17487/RFC7233">DOI 10.17487/RFC7233</a>, June 2014, &lt;<a href="https://www.rfc-editor.org/info/rfc7233">https://www.rfc-editor.org/info/rfc7233</a>&gt;.</dd><dt id="RFC7234">[RFC7234]</dt><dd>Fielding, R., Ed., Nottingham, M., Ed., and J. Reschke, Ed., “<a href="https://tools.ietf.org/html/rfc7234">Hypertext Transfer Protocol (HTTP/1.1): Caching</a>”, RFC 7234, <a href="http://dx.doi.org/10.17487/RFC7234">DOI 10.17487/RFC7234</a>, June 2014, &lt;<a href="https://www.rfc-editor.org/info/rfc7234">https://www.rfc-editor.org/info/rfc7234</a>&gt;.</dd></dl></div></section><section><div id="rfc.references.2"><h3 id="rfc.section.7.2"><a href="#rfc.section.7.2">7.2.</a> Informative References</h3><dl class="reference"><dt id="DASH">[DASH]</dt><dd>ISO, “<a href="http://standards.iso.org/ittf/PubliclyAvailableStandards/c065274_ISO_IEC_23009-1_2014.zip">Information technology -- Dynamic adaptive streaming over HTTP (DASH) -- Part 1: Media presentation description and segment formats</a>”, ISO/IEC 23009-1:2014, May 2014, &lt;<a href="http://standards.iso.org/ittf/PubliclyAvailableStandards/c065274_ISO_IEC_23009-1_2014.zip">http://standards.iso.org/ittf/PubliclyAvailableStandards/c065274_ISO_IEC_23009-1_2014.zip</a>&gt;.</dd><dt id="RFC5234">[RFC5234]</dt><dd>Crocker, D., Ed. and P. Overell, “<a href="https://tools.ietf.org/html/rfc5234">Augmented BNF for Syntax Specifications: ABNF</a>”, STD 68, RFC 5234, <a href="http://dx.doi.org/10.17487/RFC5234">DOI 10.17487/RFC5234</a>, January 2008, &lt;<a href="https://www.rfc-editor.org/info/rfc5234">https://www.rfc-editor.org/info/rfc5234</a>&gt;.</dd><dt id="RFC8216">[RFC8216]</dt><dd>Pantos, R., Ed. and W. May, “<a href="https://tools.ietf.org/html/rfc8216">HTTP Live Streaming</a>”, RFC 8216, <a href="http://dx.doi.org/10.17487/RFC8216">DOI 10.17487/RFC8216</a>, August 2017, &lt;<a href="https://www.rfc-editor.org/info/rfc8216">https://www.rfc-editor.org/info/rfc8216</a>&gt;.</dd></dl></div></section></section><section id="Acknowledgements"><h2 id="rfc.section.unnumbered-1"><a href="#Acknowledgements">Acknowledgements</a></h2><div id="rfc.section.unnumbered-1.p.1"><p>Mark Nottingham, Patrick McManus, Julian Reschke, Remy Lebeau, Rodger Combs, Thorsten Lohmar, Martin Thompson, Adrien de Croy, K. Morgan, Roy T. Fielding, Jeremy Poulter.</p></div></section><section id="rfc.authors" class="avoidbreakinside"><h2><a href="#rfc.authors">Authors' Addresses</a></h2><address><b>Craig Pratt</b><br>Portland, OR 97229<br>US<br>EMail: <a href="mailto:pratt@acm.org">pratt@acm.org</a></address><address><b>Darshak Thakore</b><br>CableLabs<br>858 Coal Creek Circle<br>Louisville, CO 80027<br>US<br>EMail: <a href="mailto:d.thakore@cablelabs.com">d.thakore@cablelabs.com</a></address><address><b>Barbara Stark</b><br>AT&amp;T<br>Atlanta, GA<br>US<br>EMail: <a href="mailto:barbara.stark@att.com">barbara.stark@att.com</a></address></section></body></html>
