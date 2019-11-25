@@ -261,9 +261,9 @@ Internet-Draft        HTTP Representation Variants         November 2019
    values for that header field, hereafter referred to as "available-
    values".
 
-   If Structured Header parsing fails or a member's value does have the
-   structure outlined above, the client MUST treat the representation as
-   having no Variants header field.
+   If Structured Header parsing fails or a member's value does not have
+   the structure outlined above, the client MUST treat the
+   representation as having no Variants header field.
 
    Note that an available-value that is a token is interpreted as a
    string containing the same characters, and vice versa.

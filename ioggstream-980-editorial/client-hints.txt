@@ -9,7 +9,7 @@ Expires: May 28, 2020                                  November 25, 2019
 
 
                            HTTP Client Hints
-                   draft-ietf-httpbis-client-hints-07
+                   draft-ietf-httpbis-client-hints-08
 
 Abstract
 
@@ -86,26 +86,26 @@ Table of Contents
      3.1.  The Accept-CH Response Header Field . . . . . . . . . . .   5
        3.1.1.  Interaction with Caches . . . . . . . . . . . . . . .   6
    4.  Security Considerations . . . . . . . . . . . . . . . . . . .   6
-   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   7
-     5.1.  Accept-CH . . . . . . . . . . . . . . . . . . . . . . . .   7
-   6.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   7
-     6.1.  Normative References  . . . . . . . . . . . . . . . . . .   7
-     6.2.  Informative References  . . . . . . . . . . . . . . . . .   8
-     6.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .   9
+   5.  Cost of Sending Hints . . . . . . . . . . . . . . . . . . . .   7
+   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   7
+     6.1.  Accept-CH . . . . . . . . . . . . . . . . . . . . . . . .   7
+   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
+     7.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
+     7.2.  Informative References  . . . . . . . . . . . . . . . . .   9
+     7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .   9
    Appendix A.  Interaction with Variants Response Header Field  . .   9
    Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .   9
      B.1.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .   9
      B.2.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .   9
-     B.3.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .   9
-     B.4.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .   9
+     B.3.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  10
+     B.4.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .  10
      B.5.  Since -04 . . . . . . . . . . . . . . . . . . . . . . . .  10
      B.6.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  10
      B.7.  Since -06 . . . . . . . . . . . . . . . . . . . . . . . .  10
      B.8.  Since -07 . . . . . . . . . . . . . . . . . . . . . . . .  10
+     B.9.  Since -08 . . . . . . . . . . . . . . . . . . . . . . . .  10
    Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  10
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  10
-
-
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  11
 
 
 
@@ -360,12 +360,25 @@ Internet-Draft              HTTP Client Hints              November 2019
    clear persisted opt-in preferences when any one of site data,
    browsing history, browsing cache, or similar, are cleared.
 
-5.  IANA Considerations
+5.  Cost of Sending Hints
+
+   While HTTP header compression schemes reduce the cost of adding HTTP
+   header fields, sending Client Hints to the server incurs an increase
+   in request byte size.  Servers SHOULD take that into account when
+   opting in to receive Client Hints, and SHOULD NOT opt-in to receive
+   hints unless they are to be used for content adaptation purposes.
+
+   Due to request byte size increase, features relying on this document
+   to define Client Hints MAY consider restricting sending those hints
+   to certain request destinations [FETCH], where they are more likely
+   to be useful.
+
+6.  IANA Considerations
 
    This document defines the "Accept-CH" HTTP response field, and
    registers it in the Permanent Message Header Fields registry.
 
-5.1.  Accept-CH
+6.1.  Accept-CH
 
    o  Header field name: Accept-CH
    o  Applicable protocol: HTTP
@@ -374,25 +387,25 @@ Internet-Draft              HTTP Client Hints              November 2019
    o  Specification document(s): Section 3.1 of this document
    o  Related information: for Client Hints
 
-6.  References
-
-6.1.  Normative References
-
-   [HTML5]    Hickson, I., Berjon, R., Faulkner, S., Leithead, T.,
-              Navara, E., O&#039;Connor, T., and S. Pfeiffer, "HTML5",
-              World Wide Web Consortium Recommendation REC-
-              html5-20141028, October 2014,
-              <http://www.w3.org/TR/2014/REC-html5-20141028>.
-
-
-
-
 
 
 Grigorik & Weiss          Expires May 28, 2020                  [Page 7]
 
 Internet-Draft              HTTP Client Hints              November 2019
 
+
+7.  References
+
+7.1.  Normative References
+
+   [FETCH]    van Kesteren, A., "Fetch", n.d.,
+              <https://fetch.spec.whatwg.org/>.
+
+   [HTML5]    Hickson, I., Berjon, R., Faulkner, S., Leithead, T.,
+              Navara, E., O&#039;Connor, T., and S. Pfeiffer, "HTML5",
+              World Wide Web Consortium Recommendation REC-
+              html5-20141028, October 2014,
+              <http://www.w3.org/TR/2014/REC-html5-20141028>.
 
    [I-D.ietf-httpbis-header-structure]
               Nottingham, M. and P. Kamp, "Structured Headers for HTTP",
@@ -428,19 +441,6 @@ Internet-Draft              HTTP Client Hints              November 2019
               RFC 7234, DOI 10.17487/RFC7234, June 2014,
               <https://www.rfc-editor.org/info/rfc7234>.
 
-   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
-              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
-
-6.2.  Informative References
-
-   [KEY]      Fielding, R. and M. Nottingham, "The Key HTTP Response
-              Header Field", draft-ietf-httpbis-key-01 (work in
-              progress), March 2016.
-
-   [RFC6265]  Barth, A., "HTTP State Management Mechanism", RFC 6265,
-              DOI 10.17487/RFC6265, April 2011,
-              <https://www.rfc-editor.org/info/rfc6265>.
 
 
 
@@ -450,11 +450,25 @@ Grigorik & Weiss          Expires May 28, 2020                  [Page 8]
 Internet-Draft              HTTP Client Hints              November 2019
 
 
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+
+7.2.  Informative References
+
+   [KEY]      Fielding, R. and M. Nottingham, "The Key HTTP Response
+              Header Field", draft-ietf-httpbis-key-01 (work in
+              progress), March 2016.
+
+   [RFC6265]  Barth, A., "HTTP State Management Mechanism", RFC 6265,
+              DOI 10.17487/RFC6265, April 2011,
+              <https://www.rfc-editor.org/info/rfc6265>.
+
    [VARIANTS]
               Nottingham, M., "HTTP Representation Variants", draft-
               ietf-httpbis-variants-05 (work in progress), March 2019.
 
-6.3.  URIs
+7.3.  URIs
 
    [1] https://lists.w3.org/Archives/Public/ietf-http-wg/
 
@@ -484,6 +498,14 @@ B.2.  Since -01
    o  Issue 200: Moved Key reference to informative.
    o  Issue 215: Extended passive fingerprinting and mitigation
       considerations.
+
+
+
+Grigorik & Weiss          Expires May 28, 2020                  [Page 9]
+
+Internet-Draft              HTTP Client Hints              November 2019
+
+
    o  Changed document status to experimental.
 
 B.3.  Since -02
@@ -499,13 +521,6 @@ B.4.  Since -03
    o  Issue 308: Editorial cleanup
    o  Issue 306: Define Accept-CH-Lifetime
 
-
-
-Grigorik & Weiss          Expires May 28, 2020                  [Page 9]
-
-Internet-Draft              HTTP Client Hints              November 2019
-
-
 B.5.  Since -04
 
    o  Issue 361: Removed Downlink
@@ -519,18 +534,36 @@ B.6.  Since -05
 B.7.  Since -06
 
    o  Issue 524: Save-Data is now defined by NetInfo spec, dropping
+   o  PR 775: Removed specific features to be defined in other
+      specifications
 
 B.8.  Since -07
 
-   o  Removed specific features to be defined in other specifications
-   o  Removed Accept-CH-Lifetime based on feedback at IETF 105
+   o  Issue 761: Clarified that the defined headers are response
+      headers.
+   o  Issue 730: Replaced Key reference with Variants.
+   o  Issue 700: Replaced ABNF with structured headers.
+   o  PR 878: Removed Accept-CH-Lifetime based on feedback at IETF 105
+
+B.9.  Since -08
+
+   o  PR 985: Describe the bytesize cost of hints.
 
 Acknowledgements
 
-   Thanks to Mark Nottingham, Julian Reschke, Chris Bentzel, Yoav Weiss,
-   Ben Greenstein, Tarun Bansal, Roy Fielding, Vasiliy Faronov, Ted
-   Hardie, Jonas Sicking, Martin Thomson, and numerous other members of
-   the IETF HTTP Working Group for invaluable help and feedback.
+   Thanks to Mark Nottingham, Julian Reschke, Chris Bentzel, Ben
+   Greenstein, Tarun Bansal, Roy Fielding, Vasiliy Faronov, Ted Hardie,
+
+
+
+
+Grigorik & Weiss          Expires May 28, 2020                 [Page 10]
+
+Internet-Draft              HTTP Client Hints              November 2019
+
+
+   Jonas Sicking, Martin Thomson, and numerous other members of the IETF
+   HTTP Working Group for invaluable help and feedback.
 
 Authors' Addresses
 
@@ -557,4 +590,27 @@ Authors' Addresses
 
 
 
-Grigorik & Weiss          Expires May 28, 2020                 [Page 10]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Grigorik & Weiss          Expires May 28, 2020                 [Page 11]
