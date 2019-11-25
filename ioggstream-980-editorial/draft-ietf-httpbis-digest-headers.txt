@@ -299,7 +299,7 @@ Internet-Draft               Digest Headers                November 2019
    The following examples show how representation metadata, payload
    transformations and method impacts on the message and payload body.
    When the payload body contains non-printable characters (eg. when it
-   is compressed) it is shown as base64 encoded.
+   is compressed) it is shown as base64-encoded string.
 
    Here is a gzip-compressed json object
 
@@ -842,6 +842,9 @@ Polli & Pardue            Expires May 28, 2020                 [Page 15]
 Internet-Draft               Digest Headers                November 2019
 
 
+   The response body is displayed as a base64-encoded string because it
+   contains non-printable characters.
+
    Request:
 
    PUT /items/123
@@ -859,9 +862,6 @@ Internet-Draft               Digest Headers                November 2019
    Digest: sha-256=4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=
 
    iwiAeyJoZWxsbyI6ICJ3b3JsZCJ9Aw==
-
-   The above payload body contains non-printable characters and it is
-   shown as base64 encoded.
 
 9.5.  Client Provides Full Representation Data, Server Provides No
       Representation Data
@@ -909,6 +909,9 @@ Internet-Draft               Digest Headers                November 2019
 
    o  one taking into account the "Content-Encoding".
 
+   As the response body contains non-printable characters, it is
+   displayed as a base64-encoded string.
+
    Request:
 
    PUT /items/123 HTTP/1.1
@@ -927,9 +930,6 @@ Content-Encoding: br
 Digest: sha-256=4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=, id-sha-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 
 iwiAeyJoZWxsbyI6ICJ3b3JsZCJ9Aw==
-
-   The above payload body contains non-printable characters and it is
-   shown as base64 encoded.
 
 9.7.  POST Response does not Reference the Request URI
 
