@@ -4,11 +4,11 @@
 
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
-Intended status: Standards Track                        October 31, 2019
-Expires: May 3, 2020
+Intended status: Standards Track                       November 25, 2019
+Expires: May 28, 2020
 
 
-                     The Cache HTTP Response Header
+                 The Cache-Status HTTP Response Header
                  draft-ietf-httpbis-cache-header-latest
 
 Abstract
@@ -44,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 3, 2020.
+   This Internet-Draft will expire on May 28, 2020.
 
 
 
@@ -53,9 +53,9 @@ Status of This Memo
 
 
 
-Nottingham                 Expires May 3, 2020                  [Page 1]
+Nottingham                Expires May 28, 2020                  [Page 1]
 
-Internet-Draft                Cache Header                  October 2019
+Internet-Draft             Cache-Status Header             November 2019
 
 
 Copyright Notice
@@ -77,13 +77,22 @@ Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
      1.1.  Notational Conventions  . . . . . . . . . . . . . . . . .   3
-   2.  The Cache HTTP Response Header  . . . . . . . . . . . . . . .   3
-   3.  Security Considerations . . . . . . . . . . . . . . . . . . .   6
-   4.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   6
-     4.1.  Normative References  . . . . . . . . . . . . . . . . . .   6
-     4.2.  Informative References  . . . . . . . . . . . . . . . . .   7
-     4.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .   7
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   7
+   2.  The Cache-Status HTTP Response Header . . . . . . . . . . . .   3
+     2.1.  The fwd parameter . . . . . . . . . . . . . . . . . . . .   4
+     2.2.  The fwd-res parameter . . . . . . . . . . . . . . . . . .   4
+     2.3.  The fwd-stored parameter  . . . . . . . . . . . . . . . .   5
+     2.4.  The res-fresh parameter . . . . . . . . . . . . . . . . .   5
+     2.5.  The cache-fresh parameter . . . . . . . . . . . . . . . .   5
+     2.6.  The collapse-hit parameter  . . . . . . . . . . . . . . .   5
+     2.7.  The collapse-wait parameter . . . . . . . . . . . . . . .   5
+     2.8.  The key parameter . . . . . . . . . . . . . . . . . . . .   6
+   3.  Examples  . . . . . . . . . . . . . . . . . . . . . . . . . .   6
+   4.  Security Considerations . . . . . . . . . . . . . . . . . . .   7
+   5.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   7
+     5.1.  Normative References  . . . . . . . . . . . . . . . . . .   7
+     5.2.  Informative References  . . . . . . . . . . . . . . . . .   8
+     5.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .   8
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   8
 
 1.  Introduction
 
@@ -95,23 +104,14 @@ Table of Contents
    implementations.
 
    This specification defines a single, new HTTP response header field,
-   "Cache" for this purpose.
-
-   For example:
-
-  Cache: HIT_FRESH; node="reverse-proxy.example.com:80";
-                    key="https://example.com/foo|Accept-Encoding:gzip",
-         HIT_STALE; node="FooCDN parent"; fresh=-45; age=200; latency=3,
-         MISS; node="FooCDN edge"; fresh=-45; age=200; latency=98
+   "Cache-Status" for this purpose.
 
 
 
 
-
-
-Nottingham                 Expires May 3, 2020                  [Page 2]
+Nottingham                Expires May 28, 2020                  [Page 2]
 
-Internet-Draft                Cache Header                  October 2019
+Internet-Draft             Cache-Status Header             November 2019
 
 
 1.1.  Notational Conventions
@@ -125,164 +125,220 @@ Internet-Draft                Cache Header                  October 2019
    This document uses ABNF as defined in [RFC5234], along with the "%s"
    extension for case sensitivity defined in [RFC7405].
 
-2.  The Cache HTTP Response Header
+2.  The Cache-Status HTTP Response Header
 
-   The Cache HTTP response header indicates the handling of the request
-   corresponding to the response it occurs within by caches along the
-   path.
+   The Cache-Status HTTP response header indicates caches' handling of
+   the request corresponding to the response it occurs within.
 
-   Its value is a Parameterised List
-   [I-D.ietf-httpbis-header-structure]:
+   Its value is a List [I-D.ietf-httpbis-header-structure]:
 
-   Cache   = sh-param-list
+   Cache-Status   = sh-list
 
    Each member of the parameterised list represents a cache that has
-   handled the request.
+   handled the request.  The first member of the list represents the
+   cache closest to the origin server, and the last member of the list
+   represents the cache closest to the user agent (possibly including
+   the user agent's cache itself, if it chooses to append a value).
 
-   The first member of the list represents the cache closest to the
-   origin server, and the last member of the list represents the cache
-   closest to the user agent (possibly including the user agent's cache
-   itself, if it chooses to append a value).
+   Caches determine when it is appropriate to add the Cache-Status
+   header field to a response.  Some might decide to add it to all
+   responses, whereas others might only do so when specifically
+   configured to, or when the request contains a header that activates a
+   debugging mode.
 
-   Caches determine when it is appropriate to add the Cache header field
-   to a response.  Some might decide to add it to all responses, whereas
-   others might only do so when specifically configured to, or when the
-   request contains a header that activates a debugging mode.
+   When adding a value to the Cache-Status header field, caches SHOULD
+   preserve the existing contents of the header, to allow debugging of
+   the entire chain of caches handling the request.
 
-   When adding a value to the Cache header field, caches SHOULD preserve
-   the existing contents of the header, to allow debugging of the entire
-   chain of caches handling the request.
+   The list members identify the cache that inserted the value, and MUST
+   have a type of either sh-string or sh-token.  Depending on the
+   deployment, this might be a product or service name (e.g.,
+   ExampleCache or "Example CDN"), a hostname ("cache-3.example.com"),
+   and IP address, or a generated string.
 
-   Identifiers in the parameterised list members are expected to be
-   cache-actions:
-
-
-
-
-
-
+   Each member of the list can also have a number of parameters that
+   describe that cache's handling of the request.  While all of these
+   parameters are OPTIONAL, caches are encouraged to provide as much
+   information as possible.
 
 
 
 
-Nottingham                 Expires May 3, 2020                  [Page 3]
+
+Nottingham                Expires May 28, 2020                  [Page 3]
 
-Internet-Draft                Cache Header                  October 2019
+Internet-Draft             Cache-Status Header             November 2019
 
 
-   cache-action   = %s"HIT_FRESH"
-                  / %s"HIT_STALE"
-                  / %s"HIT_REFRESH_MODIFIED"
-                  / %s"HIT_REFRESH_NOT_MODIFIED"
-                  / %s"HIT_REFRESH_STALE"
-                  / %s"MISS"
-                  / %s"MISS_CLIENT"
-                  / %s"BYPASS"
-                  / %s"ERROR"
+   fwd           = sh-token
+   fwd-res       = sh-token
+   fwd-stored    = sh-boolean
+   res-fresh     = sh-integer
+   cache-fresh   = sh-integer
+   collapse-hit  = sh-boolean
+   collapse-wait = sh-integer
+   key           = sh-string
 
-   The semantics of cache-actions are:
+2.1.  The fwd parameter
 
-   o  HIT_FRESH - The cache used a fresh stored response to satisfy the
-      request without going forward
+   "fwd" indicates why the request went forward.  If it is not present,
+   the value defaults to "none".
 
-   o  HIT_STALE - The cache used a stale stored response to satisfy the
-      request without going forward
+   It can have one of the following values:
 
-   o  HIT_REFRESH_MODIFIED - The cache had a stale stored response, went
-      forward to validate it, and used the new response to satisfy the
-      request
+   o  none - The request did not go forward; i.e., it was a hit, and was
+      served from the cache.
 
-   o  HIT_REFRESH_NOT_MODIFIED - The cache had a stale stored response,
-      went forward to validate it, and used the stored response to
-      satisfy the request
+   o  bypass - The cache was configured to not handle this request
 
-   o  HIT_REFRESH_STALE - The cache had a stale stored response, went
-      forward to validate it, and encountered a problem, so the stored
-      response was used to satisfy the request
+   o  uri-miss - The cache did not contain any responses that matched
+      the request URI
 
-   o  MISS - The cache did not have a stored response, so the request
-      was forwarded
+   o  vary-miss - The cache contained a response that matched the
+      request URI, but could not select a response based upon this
+      request's headers.
 
-   o  MISS_CLIENT - The client included request directives (e.g.,
-      Pragma, Cache-Control) that prevented the cache from returning a
-      response, so the request was forwarded
+   o  miss - The cache did not contain any responses that could be used
+      to satisfy this request (to be used when an implementation cannot
+      distinguish between uri-miss and vary-miss)
 
-   o  BYPASS - The cache was configured to forward the request without
-      attempting to use a stored response
+   o  res-stale - The cache was able to select a response for the
+      request, but it was stale
 
-   o  ERROR - The cache was unable to use a stored response or obtain
-      one by going forward
+   o  req-stale - The cache was able to select a fresh response for the
+      request, but client request headers (e.g., Cache-Control request
+      directives) did not allow its use
 
-   Caches SHOULD use the most specific cache-action to a given response,
-   but are not required to use all cache-actions.  Future updates to
-   this specification can add additional cache-actions.
+2.2.  The fwd-res parameter
 
+   "fwd-res" indicates what the result of the forward request was.  It
+   is only valid when fwd is "res-stale" or "req-stale", and defaults to
+   "full" if not present when fwd is one of those values.
 
+   It can have one of the following values:
 
 
 
-Nottingham                 Expires May 3, 2020                  [Page 4]
+
+
+Nottingham                Expires May 28, 2020                  [Page 4]
 
-Internet-Draft                Cache Header                  October 2019
+Internet-Draft             Cache-Status Header             November 2019
 
 
-   Each member of the Cache header can also have any (or all, or none)
-   of the following parameters:
+   o  full - indicates that the response was a complete response (any
+      status code except 304 Not Modified and 206 Partial Response)
 
-   node           = sh-string
-   fresh          = sh-integer
-   age            = sh-integer
-   cacheable      = sh-boolean
-   key            = sh-string
-   latency        = sh-integer
-   cl_nm          = sh-boolean
+   o  partial - indicates that the response was a 206 Partial Response
 
-   Their semantics are:
+   o  notmod - indicates that the response was a 304 Not Modified
 
-   o  "node" - a sh-string identifying the cache node adding the cache-
-      action.  MAY be a hostname, IP address, or alias.
+2.3.  The fwd-stored parameter
 
-   o  "fresh" - a sh-integer indicating the cache's estimation of the
-      freshness lifetime ([RFC7234], Section 4.2.1) of this response in
-      seconds, including any locally applied configuration.  MAY be
-      negative.
+   "fwd-stored" indicates whether the cache stored the response; a true
+   value indicates that it did.  Only valid when fwd is not "none".
 
-   o  "age" - a sh-integer indicating the cache's estimation of the age
-      ([RFC7234], Section 4.2.3) of this response in seconds.  MUST be 0
-      or greater.
+2.4.  The res-fresh parameter
 
-   o  "cacheable" - a sh-boolean indicating whether the cache can store
-      this response, according to [RFC7234], Section 3 and any locally
-      applied configuration.
+   "res-fresh" indicates the response's remaining freshness lifetime (as
+   per [I-D.ietf-httpbis-cache], Section 4.2.1), as an integer number of
+   seconds.  This does not include freshness assigned by the cache (see
+   "cache-fresh").  May be negative, to indicate staleness.
 
-   o  "key" - a string representing the key that the cache has
-      associated with this response.  This might include the request
-      URL, request headers, and other values.
+2.5.  The cache-fresh parameter
 
-   o  "latency" - a sh-integer indicating the amount of time in
-      milliseconds between the receipt of a complete set of request
-      headers and sending the complete set of response headers of this
-      response, from the viewpoint of the cache.  Note that this may not
-      include buffering time in transport protocols and similar delays.
+   "cache-fresh" indicates the response's remaining freshness lifetime
+   as calculated by the cache, as an integer number of seconds.  This
+   includes freshness assigned by the cache; e.g., through heuristics,
+   local configuration, or other factors.  May be negative, to indicate
+   staleness.
 
-   o  "cl_nm" - a sh-boolean indicating whether the response to the
-      client had a 304 Not Modified status code.
+   If both cache-fresh and res-fresh appear as parameters on the same
+   value, it implies that the cache freshness overrode the response
+   freshness.
 
-   While all of these parameters are OPTIONAL, caches are encouraged to
-   use the 'node' parameter to identify themselves.
+2.6.  The collapse-hit parameter
 
+   "collapse-hit" indicates whether this request was collapsed together
+   with one or more other forward requests; if true, the response was
+   successfully reused; if not, a new request had to be made.  If not
+   present, the request was not collapsed with others.
 
+2.7.  The collapse-wait parameter
+
+   "collapse-wait" indicates the amount of time that the cache held the
+   request while waiting to see if it could be successfully collapsed,
+   as an integer number of milliseconds.
 
 
 
 
 
-Nottingham                 Expires May 3, 2020                  [Page 5]
+
+
+
+Nottingham                Expires May 28, 2020                  [Page 5]
 
-Internet-Draft                Cache Header                  October 2019
+Internet-Draft             Cache-Status Header             November 2019
 
 
-3.  Security Considerations
+2.8.  The key parameter
+
+   "key" conveys a representation of the cache key used for the
+   response.  Note that this may be implementation-specific.
+
+3.  Examples
+
+   The most minimal cache hit:
+
+   Cache-Status: ExampleCache
+
+   ... but a polite cache will give some more information, e.g.:
+
+   Cache-Status: ExampleCache; res-fresh=376
+
+   A "negative" hit (i.e., the cache imposed its own freshness
+   lifetime):
+
+   Cache-Status: ExampleCache; cache-fresh=415
+
+   A stale hit just has negative freshness:
+
+   Cache-Status: ExampleCache; res-fresh=-412
+
+   Whereas a complete miss is:
+
+   Cache-Status: ExampleCache; fwd=uri-miss
+
+   A miss that validated on the back-end server:
+
+   Cache-Status: ExampleCache; fwd=res-stale; fwd-res=notmod
+
+   A miss that was collapsed with another request:
+
+   Cache-Status: ExampleCache; fwd=uri-miss; collapse-hit=?1
+
+   A miss that the cache attempted to collapse, but couldn't:
+
+   Cache-Status: ExampleCache; fwd=uri-miss;
+                 collapse-hit=?0; collapse-wait=240
+
+   Going through two layers of caching, both of which were hits, and the
+   second collapsed with other requests:
+
+   Cache-Status: OriginCache; cache-fresh=1100; collapse-hit=?1,
+                 "CDN Company Here"; res-fresh=545,
+
+
+
+
+
+Nottingham                Expires May 28, 2020                  [Page 6]
+
+Internet-Draft             Cache-Status Header             November 2019
+
+
+4.  Security Considerations
 
    Information about a cache's content can be used to infer the activity
    of those using it.  Generally, access to sensitive information in a
@@ -290,25 +346,31 @@ Internet-Draft                Cache Header                  October 2019
    information (using a variety of techniques), so this does not
    represent an attack vector in the general sense.
 
-   However, if the Cache header is exposed to parties who are not
+   However, if the Cache-Status header is exposed to parties who are not
    authorised to obtain the response it occurs within, it could expose
    information about that data.
 
-   For example, if an attacker were able to obtain the Cache header from
-   a response containing sensitive information and access were limited
-   to one person (or limited set of people), they could determine
-   whether that information had been accessed before.  This is similar
-   to the information exposed by various timing attacks, but is arguably
-   more reliable, since the cache is directly reporting its state.
+   For example, if an attacker were able to obtain the Cache-Status
+   header from a response containing sensitive information and access
+   were limited to one person (or limited set of people), they could
+   determine whether that information had been accessed before.  This is
+   similar to the information exposed by various timing attacks, but is
+   arguably more reliable, since the cache is directly reporting its
+   state.
 
    Mitigations include use of encryption (e.g., TLS [RFC8446])) to
    protect the response, and careful controls over access to response
    headers (as are present in the Web platform).  When in doubt, the
-   Cache header field can be omitted.
+   Cache-Status header field can be omitted.
 
-4.  References
+5.  References
 
-4.1.  Normative References
+5.1.  Normative References
+
+   [I-D.ietf-httpbis-cache]
+              Fielding, R., Nottingham, M., and J. Reschke, "HTTP
+              Caching", draft-ietf-httpbis-cache-05 (work in progress),
+              July 2019.
 
    [I-D.ietf-httpbis-header-structure]
               Nottingham, M. and P. Kamp, "Structured Headers for HTTP",
@@ -325,17 +387,11 @@ Internet-Draft                Cache Header                  October 2019
               DOI 10.17487/RFC5234, January 2008,
               <https://www.rfc-editor.org/info/rfc5234>.
 
-   [RFC7234]  Fielding, R., Ed., Nottingham, M., Ed., and J. Reschke,
-              Ed., "Hypertext Transfer Protocol (HTTP/1.1): Caching",
-              RFC 7234, DOI 10.17487/RFC7234, June 2014,
-              <https://www.rfc-editor.org/info/rfc7234>.
 
 
-
-
-Nottingham                 Expires May 3, 2020                  [Page 6]
+Nottingham                Expires May 28, 2020                  [Page 7]
 
-Internet-Draft                Cache Header                  October 2019
+Internet-Draft             Cache-Status Header             November 2019
 
 
    [RFC7405]  Kyzivat, P., "Case-Sensitive String Support in ABNF",
@@ -346,13 +402,13 @@ Internet-Draft                Cache Header                  October 2019
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
-4.2.  Informative References
+5.2.  Informative References
 
    [RFC8446]  Rescorla, E., "The Transport Layer Security (TLS) Protocol
               Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
               <https://www.rfc-editor.org/info/rfc8446>.
 
-4.3.  URIs
+5.3.  URIs
 
    [1] https://lists.w3.org/Archives/Public/ietf-http-wg/
 
@@ -389,4 +445,4 @@ Author's Address
 
 
 
-Nottingham                 Expires May 3, 2020                  [Page 7]
+Nottingham                Expires May 28, 2020                  [Page 8]
