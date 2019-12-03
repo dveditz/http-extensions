@@ -5,8 +5,8 @@
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
 Intended status: Standards Track                               P-H. Kamp
-Expires: May 31, 2020                          The Varnish Cache Project
-                                                       November 28, 2019
+Expires: June 5, 2020                          The Varnish Cache Project
+                                                        December 3, 2019
 
 
                       Structured Headers for HTTP
@@ -53,9 +53,9 @@ Status of This Memo
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                  [Page 1]
+Nottingham & Kamp         Expires June 5, 2020                  [Page 1]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    Internet-Drafts are draft documents valid for a maximum of six months
@@ -63,7 +63,7 @@ Internet-Draft         Structured Headers for HTTP         November 2019
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 31, 2020.
+   This Internet-Draft will expire on June 5, 2020.
 
 Copyright Notice
 
@@ -95,23 +95,23 @@ Table of Contents
        3.3.1.  Integers  . . . . . . . . . . . . . . . . . . . . . .  11
        3.3.2.  Floats  . . . . . . . . . . . . . . . . . . . . . . .  11
        3.3.3.  Strings . . . . . . . . . . . . . . . . . . . . . . .  12
-       3.3.4.  Tokens  . . . . . . . . . . . . . . . . . . . . . . .  12
+       3.3.4.  Tokens  . . . . . . . . . . . . . . . . . . . . . . .  13
        3.3.5.  Byte Sequences  . . . . . . . . . . . . . . . . . . .  13
        3.3.6.  Booleans  . . . . . . . . . . . . . . . . . . . . . .  13
-   4.  Working With Structured Headers in HTTP Headers . . . . . . .  13
-     4.1.  Serializing Structured Headers  . . . . . . . . . . . . .  13
+   4.  Working With Structured Headers in HTTP Headers . . . . . . .  14
+     4.1.  Serializing Structured Headers  . . . . . . . . . . . . .  14
        4.1.1.  Serializing a List  . . . . . . . . . . . . . . . . .  14
        4.1.2.  Serializing a Dictionary  . . . . . . . . . . . . . .  16
        4.1.3.  Serializing an Item . . . . . . . . . . . . . . . . .  17
-       4.1.4.  Serializing an Integer  . . . . . . . . . . . . . . .  17
+       4.1.4.  Serializing an Integer  . . . . . . . . . . . . . . .  18
        4.1.5.  Serializing a Float . . . . . . . . . . . . . . . . .  18
        4.1.6.  Serializing a String  . . . . . . . . . . . . . . . .  19
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                  [Page 2]
+Nottingham & Kamp         Expires June 5, 2020                  [Page 2]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
        4.1.7.  Serializing a Token . . . . . . . . . . . . . . . . .  19
@@ -165,9 +165,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                  [Page 3]
+Nottingham & Kamp         Expires June 5, 2020                  [Page 3]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    Once a header field is defined, bespoke parsers and serializers often
@@ -221,9 +221,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                  [Page 4]
+Nottingham & Kamp         Expires June 5, 2020                  [Page 4]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    Note that as a result of this strictness, if a header field is
@@ -277,9 +277,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                  [Page 5]
+Nottingham & Kamp         Expires June 5, 2020                  [Page 5]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    Typically, this means that a header definition will specify the top-
@@ -333,9 +333,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                  [Page 6]
+Nottingham & Kamp         Expires June 5, 2020                  [Page 6]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    42. Foo-Example Header
@@ -389,9 +389,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                  [Page 7]
+Nottingham & Kamp         Expires June 5, 2020                  [Page 7]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
 3.1.  Lists
@@ -445,9 +445,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                  [Page 8]
+Nottingham & Kamp         Expires June 5, 2020                  [Page 8]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    Parsers MUST support inner-lists containing at least 256 members.
@@ -501,9 +501,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                  [Page 9]
+Nottingham & Kamp         Expires June 5, 2020                  [Page 9]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    sh-dictionary  = dict-member *( OWS "," OWS dict-member )
@@ -517,11 +517,16 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
    Example-DictHeader: en="Applepie", da=*w4ZibGV0w6ZydGU=*
 
-   Members whose value is Boolean true omit their value when serialised,
-   unless it has parameters.  For example, here both "b" and "c" are
-   true, but "c"'s value is serialised because it has parameters:
+   Members whose value is Boolean true MUST omit that value when
+   serialised, unless it has parameters.  For example, here both "b" and
+   "c" are true, but "c"'s value is serialised because it has
+   parameters:
 
    Example-DictHeader: a=?0, b, c=?1; foo=bar
+
+   Note that this requirement is only on serialisation; parsers are
+   still required to correctly handle the true value when it appears in
+   dictionary values.
 
    A dictionary with a member whose value is an inner-list of tokens:
 
@@ -548,19 +553,19 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
    An item is can be a integer (Section 3.3.1), float (Section 3.3.2),
    string (Section 3.3.3), token (Section 3.3.4), byte sequence
+
+
+
+
+Nottingham & Kamp         Expires June 5, 2020                 [Page 10]
+
+Internet-Draft         Structured Headers for HTTP         December 2019
+
+
    (Section 3.3.5), or Boolean (Section 3.3.6).  It can have associated
    parameters (Section 3.1.2).
 
    The ABNF for items in HTTP headers is:
-
-
-
-
-
-Nottingham & Kamp         Expires May 31, 2020                 [Page 10]
-
-Internet-Draft         Structured Headers for HTTP         November 2019
-
 
    sh-item   = bare-item *parameter
    bare-item = sh-integer / sh-float / sh-string / sh-token / sh-binary
@@ -602,21 +607,23 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
    The ABNF for floats in HTTP headers is:
 
+
+
+
+
+
+
+Nottingham & Kamp         Expires June 5, 2020                 [Page 11]
+
+Internet-Draft         Structured Headers for HTTP         December 2019
+
+
    sh-float    = ["-"] (1*9DIGIT "." 1*6DIGIT /
                          10DIGIT "." 1*5DIGIT /
                          11DIGIT "." 1*4DIGIT /
                          12DIGIT "." 1*3DIGIT /
                          13DIGIT "." 1*2DIGIT /
                          14DIGIT "." 1DIGIT )
-
-
-
-
-
-Nottingham & Kamp         Expires May 31, 2020                 [Page 11]
-
-Internet-Draft         Structured Headers for HTTP         November 2019
-
 
    For example, a header whose value is defined as a float could look
    like:
@@ -656,6 +663,17 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
    Parsers MUST support strings with at least 1024 characters.
 
+
+
+
+
+
+
+Nottingham & Kamp         Expires June 5, 2020                 [Page 12]
+
+Internet-Draft         Structured Headers for HTTP         December 2019
+
+
 3.3.4.  Tokens
 
    Tokens are short textual words; their abstract model is identical to
@@ -666,13 +684,6 @@ Internet-Draft         Structured Headers for HTTP         November 2019
    sh-token = ALPHA *( tchar / ":" / "/" )
 
    Parsers MUST support tokens with at least 512 characters.
-
-
-
-Nottingham & Kamp         Expires May 31, 2020                 [Page 12]
-
-Internet-Draft         Structured Headers for HTTP         November 2019
-
 
    Note that a Structured Header token allows the characters as the
    "token" ABNF rule defined in [RFC7230], with the exceptions that the
@@ -710,6 +721,15 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
    Example-BoolHdr: ?1
 
+
+
+
+
+Nottingham & Kamp         Expires June 5, 2020                 [Page 13]
+
+Internet-Draft         Structured Headers for HTTP         December 2019
+
+
 4.  Working With Structured Headers in HTTP Headers
 
    This section defines how to serialize and parse Structured Headers in
@@ -720,15 +740,6 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
    Given a structure defined in this specification, return an ASCII
    string suitable for use in a HTTP header value.
-
-
-
-
-
-Nottingham & Kamp         Expires May 31, 2020                 [Page 13]
-
-Internet-Draft         Structured Headers for HTTP         November 2019
-
 
    1.  If the structure is a Dictionary or List and its value is empty
        (i.e., it has no members), do not serialize the field at all
@@ -768,23 +779,18 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
        3.  If more member_values remain in input_list:
 
+
+
+Nottingham & Kamp         Expires June 5, 2020                 [Page 14]
+
+Internet-Draft         Structured Headers for HTTP         December 2019
+
+
            1.  Append a COMMA to output.
 
            2.  Append a single WS to output.
 
    3.  Return output.
-
-
-
-
-
-
-
-
-Nottingham & Kamp         Expires May 31, 2020                 [Page 14]
-
-Internet-Draft         Structured Headers for HTTP         November 2019
-
 
 4.1.1.1.  Serialising an Inner List
 
@@ -829,18 +835,17 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
            1.  Append "=" to output.
 
+
+
+Nottingham & Kamp         Expires June 5, 2020                 [Page 15]
+
+Internet-Draft         Structured Headers for HTTP         December 2019
+
+
            2.  Append the result of running Serializing a bare Item
                (Section 4.1.3.1) with param_value to output.
 
    3.  Return output.
-
-
-
-
-Nottingham & Kamp         Expires May 31, 2020                 [Page 15]
-
-Internet-Draft         Structured Headers for HTTP         November 2019
-
 
 4.1.1.3.  Serializing a Key
 
@@ -886,17 +891,16 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
        3.  If more members remain in input_dictionary:
 
+
+
+Nottingham & Kamp         Expires June 5, 2020                 [Page 16]
+
+Internet-Draft         Structured Headers for HTTP         December 2019
+
+
            1.  Append a COMMA to output.
 
            2.  Append a single WS to output.
-
-
-
-
-Nottingham & Kamp         Expires May 31, 2020                 [Page 16]
-
-Internet-Draft         Structured Headers for HTTP         November 2019
-
 
    3.  Return output.
 
@@ -940,19 +944,20 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
    7.  Otherwise, fail serialisation.
 
+
+
+
+
+
+Nottingham & Kamp         Expires June 5, 2020                 [Page 17]
+
+Internet-Draft         Structured Headers for HTTP         December 2019
+
+
 4.1.4.  Serializing an Integer
 
    Given an integer as input_integer, return an ASCII string suitable
    for use in a HTTP header value.
-
-
-
-
-
-Nottingham & Kamp         Expires May 31, 2020                 [Page 17]
-
-Internet-Draft         Structured Headers for HTTP         November 2019
-
 
    1.  If input_integer is not an integer in the range of
        -999,999,999,999,999 to 999,999,999,999,999 inclusive, fail
@@ -997,18 +1002,17 @@ Internet-Draft         Structured Headers for HTTP         November 2019
    9.   If input_float's fractional component is 0, append "0" to
         output.
 
+
+
+
+Nottingham & Kamp         Expires June 5, 2020                 [Page 18]
+
+Internet-Draft         Structured Headers for HTTP         December 2019
+
+
    10.  Else if input_float's fractional component has
         fractional_digits_avail or less digits, append input_float's
         fractional component represented in base 10 to output.
-
-
-
-
-
-Nottingham & Kamp         Expires May 31, 2020                 [Page 18]
-
-Internet-Draft         Structured Headers for HTTP         November 2019
-
 
    11.  Else append fractional_digits_avail digits of input_float's
         fractional component represented in base 10 to output, rounding
@@ -1057,13 +1061,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-
-
-
-
-Nottingham & Kamp         Expires May 31, 2020                 [Page 19]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 19]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
 4.1.8.  Serializing a Byte Sequence
@@ -1117,9 +1117,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 20]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 20]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    or even security problems.  This section specifies the algorithm for
@@ -1173,9 +1173,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 21]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 21]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    If parsing fails - including when calling another algorithm - the
@@ -1229,9 +1229,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 22]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 22]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    1.  If the first character of input_string is "(", return the result
@@ -1285,9 +1285,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 23]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 23]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    2.  While input_string is not empty:
@@ -1341,9 +1341,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 24]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 24]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    2.  Let parameters be the result of running Parsing Parameters
@@ -1397,9 +1397,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 25]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 25]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
        4.  let param_name be the result of running Parsing a Key
@@ -1453,9 +1453,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 26]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 26]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    NOTE: This algorithm parses both Integers (Section 3.3.1) and Floats
@@ -1509,9 +1509,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 27]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 27]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
         2.  If the number of characters after "." in input_number is
@@ -1565,9 +1565,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 28]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 28]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
 4.2.6.  Parsing a Token
@@ -1621,9 +1621,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 29]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 29]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    Because some implementations of base64 do not allow reject of encoded
@@ -1677,9 +1677,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 30]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 30]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
 7.  References
@@ -1733,9 +1733,9 @@ Internet-Draft         Structured Headers for HTTP         November 2019
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 31]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 31]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    [RFC7540]  Belshe, M., Peon, R., and M. Thomson, Ed., "Hypertext
@@ -1789,9 +1789,9 @@ B.1.  Why not JSON?
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 32]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 32]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    For example, JSON has specification issues around large numbers and
@@ -1845,9 +1845,9 @@ B.2.  Structured Headers don't "fit" my data.
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 33]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 33]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    When specifying more than one header, it's important to remember to
@@ -1901,9 +1901,9 @@ D.2.  Since draft-ietf-httpbis-header-structure-13
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 34]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 34]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    o  Define "structured header name" and "structured header value"
@@ -1957,9 +1957,9 @@ D.5.  Since draft-ietf-httpbis-header-structure-10
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 35]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 35]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
 D.6.  Since draft-ietf-httpbis-header-structure-09
@@ -2013,9 +2013,9 @@ D.8.  Since draft-ietf-httpbis-header-structure-07
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 36]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 36]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    o  Explain the consequences of splitting a string across multiple
@@ -2069,9 +2069,9 @@ D.13.  Since draft-ietf-httpbis-header-structure-02
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 37]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 37]
 
-Internet-Draft         Structured Headers for HTTP         November 2019
+Internet-Draft         Structured Headers for HTTP         December 2019
 
 
    o  Improve limits in algorithms.
@@ -2125,4 +2125,4 @@ Authors' Addresses
 
 
 
-Nottingham & Kamp         Expires May 31, 2020                 [Page 38]
+Nottingham & Kamp         Expires June 5, 2020                 [Page 38]
