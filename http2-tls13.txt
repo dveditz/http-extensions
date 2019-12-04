@@ -4,9 +4,9 @@
 
 HTTP Working Group                                           D. Benjamin
 Internet-Draft                                                Google LLC
-Updates: 7540 (if approved)                            November 28, 2019
+Updates: 7540 (if approved)                            December 04, 2019
 Intended status: Standards Track
-Expires: May 31, 2020
+Expires: June 6, 2020
 
 
                        Using TLS 1.3 with HTTP/2
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 31, 2020.
+   This Internet-Draft will expire on June 6, 2020.
 
 
 
@@ -53,9 +53,9 @@ Status of This Memo
 
 
 
-Benjamin                  Expires May 31, 2020                  [Page 1]
+Benjamin                  Expires June 6, 2020                  [Page 1]
 
-Internet-Draft          Using TLS 1.3 with HTTP/2          November 2019
+Internet-Draft          Using TLS 1.3 with HTTP/2          December 2019
 
 
 Copyright Notice
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Benjamin                  Expires May 31, 2020                  [Page 2]
+Benjamin                  Expires June 6, 2020                  [Page 2]
 
-Internet-Draft          Using TLS 1.3 with HTTP/2          November 2019
+Internet-Draft          Using TLS 1.3 with HTTP/2          December 2019
 
 
    This document updates HTTP/2 to similarly forbid TLS 1.3 post-
@@ -165,9 +165,9 @@ Internet-Draft          Using TLS 1.3 with HTTP/2          November 2019
 
 
 
-Benjamin                  Expires May 31, 2020                  [Page 3]
+Benjamin                  Expires June 6, 2020                  [Page 3]
 
-Internet-Draft          Using TLS 1.3 with HTTP/2          November 2019
+Internet-Draft          Using TLS 1.3 with HTTP/2          December 2019
 
 
    Unless the use of a new type of TLS message depends on an interaction
@@ -221,9 +221,9 @@ Internet-Draft          Using TLS 1.3 with HTTP/2          November 2019
 
 
 
-Benjamin                  Expires May 31, 2020                  [Page 4]
+Benjamin                  Expires June 6, 2020                  [Page 4]
 
-Internet-Draft          Using TLS 1.3 with HTTP/2          November 2019
+Internet-Draft          Using TLS 1.3 with HTTP/2          December 2019
 
 
    [RFC8446]  Rescorla, E., "The Transport Layer Security (TLS) Protocol
@@ -277,4 +277,4 @@ Author's Address
 
 
 
-Benjamin                  Expires May 31, 2020                  [Page 5]
+Benjamin                  Expires June 6, 2020                  [Page 5]

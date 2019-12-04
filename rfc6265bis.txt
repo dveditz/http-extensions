@@ -5,8 +5,8 @@
 HTTP Working Group                                              A. Barth
 Internet-Draft                                                   M. West
 Obsoletes: 6265 (if approved)                                Google, Inc
-Intended status: Standards Track                       November 28, 2019
-Expires: May 31, 2020
+Intended status: Standards Track                        December 4, 2019
+Expires: June 6, 2020
 
 
                 Cookies: HTTP State Management Mechanism
@@ -47,15 +47,15 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 31, 2020.
+   This Internet-Draft will expire on June 6, 2020.
 
 
 
 
 
-Barth & West              Expires May 31, 2020                  [Page 1]
+Barth & West              Expires June 6, 2020                  [Page 1]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
 Copyright Notice
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Barth & West              Expires May 31, 2020                  [Page 2]
+Barth & West              Expires June 6, 2020                  [Page 2]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
        5.1.3.  Domain Matching . . . . . . . . . . . . . . . . . . .  19
@@ -165,9 +165,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                  [Page 3]
+Barth & West              Expires June 6, 2020                  [Page 3]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
      A.5.  draft-ietf-httpbis-rfc6265bis-04  . . . . . . . . . . . .  50
@@ -221,9 +221,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                  [Page 4]
+Barth & West              Expires June 6, 2020                  [Page 4]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    today.  Where some existing software differs from the recommended
@@ -277,9 +277,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                  [Page 5]
+Barth & West              Expires June 6, 2020                  [Page 5]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
 2.3.  Terminology
@@ -333,9 +333,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                  [Page 6]
+Barth & West              Expires June 6, 2020                  [Page 6]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    The term "request", as well as a request's "client", "current url",
@@ -389,9 +389,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                  [Page 7]
+Barth & West              Expires June 6, 2020                  [Page 7]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    The server can alter the default scope of the cookie using the Path
@@ -445,9 +445,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                  [Page 8]
+Barth & West              Expires June 6, 2020                  [Page 8]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    the Set-Cookie header match the values used when the cookie was
@@ -501,9 +501,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                  [Page 9]
+Barth & West              Expires June 6, 2020                  [Page 9]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    set-cookie-header = "Set-Cookie:" SP set-cookie-string
@@ -557,9 +557,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 10]
+Barth & West              Expires June 6, 2020                 [Page 10]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    Per the grammar above, the cookie-value MAY be wrapped in DQUOTE
@@ -613,9 +613,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 11]
+Barth & West              Expires June 6, 2020                 [Page 11]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    Unless the cookie's attributes indicate otherwise, the cookie is
@@ -669,9 +669,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 12]
+Barth & West              Expires June 6, 2020                 [Page 12]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    without a Domain attribute, these user agents will erroneously send
@@ -725,9 +725,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 13]
+Barth & West              Expires June 6, 2020                 [Page 13]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
 4.1.2.6.  The HttpOnly Attribute
@@ -781,9 +781,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 14]
+Barth & West              Expires June 6, 2020                 [Page 14]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    For example, the following "Set-Cookie" header would be rejected by a
@@ -837,9 +837,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 15]
+Barth & West              Expires June 6, 2020                 [Page 15]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    Section 5), the user agent will send a Cookie header that conforms to
@@ -893,9 +893,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 16]
+Barth & West              Expires June 6, 2020                 [Page 16]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
 5.1.1.  Dates
@@ -949,9 +949,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 17]
+Barth & West              Expires June 6, 2020                 [Page 17]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
        4.  If the found-year flag is not set and the date-token matches
@@ -1005,9 +1005,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 18]
+Barth & West              Expires June 6, 2020                 [Page 18]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    2.  Convert each label that is not a Non-Reserved LDH (NR-LDH) label,
@@ -1061,9 +1061,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 19]
+Barth & West              Expires June 6, 2020                 [Page 19]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    A request-path path-matches a given cookie-path if at least one of
@@ -1117,9 +1117,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 20]
+Barth & West              Expires June 6, 2020                 [Page 20]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
 5.2.1.  Document-based requests
@@ -1173,9 +1173,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 21]
+Barth & West              Expires June 6, 2020                 [Page 21]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
 5.2.2.  Worker-based requests
@@ -1229,9 +1229,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 22]
+Barth & West              Expires June 6, 2020                 [Page 22]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    Requests which simply pass through a Service Worker will be handled
@@ -1285,9 +1285,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 23]
+Barth & West              Expires June 6, 2020                 [Page 23]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
        1.  The name-value-pair string consists of all the characters
@@ -1341,9 +1341,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 24]
+Barth & West              Expires June 6, 2020                 [Page 24]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
            consists of the characters after the first %x3D ("=")
@@ -1397,9 +1397,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 25]
+Barth & West              Expires June 6, 2020                 [Page 25]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
 5.3.2.  The Max-Age Attribute
@@ -1453,9 +1453,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 26]
+Barth & West              Expires June 6, 2020                 [Page 26]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
 5.3.4.  The Path Attribute
@@ -1509,9 +1509,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 27]
+Barth & West              Expires June 6, 2020                 [Page 27]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    Note: This algorithm maps the "None" value, as well as any unknown
@@ -1565,9 +1565,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 28]
+Barth & West              Expires June 6, 2020                 [Page 28]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
         from "third-party" responses or the user agent might not wish to
@@ -1621,9 +1621,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 29]
+Barth & West              Expires June 6, 2020                 [Page 29]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
         1.  If the domain-attribute is identical to the canonicalized
@@ -1677,9 +1677,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 30]
+Barth & West              Expires June 6, 2020                 [Page 30]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    9.   If the scheme component of the request-uri does not denote a
@@ -1733,9 +1733,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 31]
+Barth & West              Expires June 6, 2020                 [Page 31]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
             domain, then abort these steps and ignore the newly created
@@ -1789,9 +1789,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 32]
+Barth & West              Expires June 6, 2020                 [Page 32]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
         3.  Update the creation-time of the newly-created cookie to
@@ -1845,9 +1845,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 33]
+Barth & West              Expires June 6, 2020                 [Page 33]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    A user agent MAY omit the Cookie header in its entirety.  For
@@ -1901,9 +1901,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 34]
+Barth & West              Expires June 6, 2020                 [Page 34]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
           3.  The HTTP request's target browsing context is a top-level
@@ -1957,9 +1957,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 35]
+Barth & West              Expires June 6, 2020                 [Page 35]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    o  At least 50 cookies per domain.
@@ -2013,9 +2013,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 36]
+Barth & West              Expires June 6, 2020                 [Page 36]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    they are persistent across user agent sessions and can be shared
@@ -2069,9 +2069,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 37]
+Barth & West              Expires June 6, 2020                 [Page 37]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    Some user agents provide users the option of preventing persistent
@@ -2125,9 +2125,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 38]
+Barth & West              Expires June 6, 2020                 [Page 38]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    if the remote party does not know the contents of the cookies,
@@ -2181,9 +2181,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 39]
+Barth & West              Expires June 6, 2020                 [Page 39]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    not set the Secure attribute, the protection provided by the secure
@@ -2237,9 +2237,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 40]
+Barth & West              Expires June 6, 2020                 [Page 40]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    service running on another port of the same server.  For this reason,
@@ -2293,9 +2293,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 41]
+Barth & West              Expires June 6, 2020                 [Page 41]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    from cookies that it set itself in an HTTPS response.  An active
@@ -2349,9 +2349,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 42]
+Barth & West              Expires June 6, 2020                 [Page 42]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    cookie-based session management systems deal reasonably well with
@@ -2405,9 +2405,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 43]
+Barth & West              Expires June 6, 2020                 [Page 43]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
 9.  IANA Considerations
@@ -2461,9 +2461,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 44]
+Barth & West              Expires June 6, 2020                 [Page 44]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    [RFC1123]  Braden, R., Ed., "Requirements for Internet Hosts -
@@ -2517,9 +2517,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 45]
+Barth & West              Expires June 6, 2020                 [Page 45]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    [SERVICE-WORKERS]
@@ -2573,9 +2573,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 46]
+Barth & West              Expires June 6, 2020                 [Page 46]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
    [prerendering]
@@ -2629,9 +2629,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 47]
+Barth & West              Expires June 6, 2020                 [Page 47]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
 10.3.  URIs
@@ -2685,9 +2685,9 @@ A.1.  draft-ietf-httpbis-rfc6265bis-00
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 48]
+Barth & West              Expires June 6, 2020                 [Page 48]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
 A.2.  draft-ietf-httpbis-rfc6265bis-01
@@ -2741,9 +2741,9 @@ A.3.  draft-ietf-httpbis-rfc6265bis-02
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 49]
+Barth & West              Expires June 6, 2020                 [Page 49]
 
-Internet-Draft  Cookies: HTTP State Management Mechanism   November 2019
+Internet-Draft  Cookies: HTTP State Management Mechanism   December 2019
 
 
       *  Noted that double-quotes in cookie values are part of the
@@ -2797,4 +2797,4 @@ Authors' Addresses
 
 
 
-Barth & West              Expires May 31, 2020                 [Page 50]
+Barth & West              Expires June 6, 2020                 [Page 50]
