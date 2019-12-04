@@ -862,8 +862,8 @@ Internet-Draft        HTTP Representation Variants         December 2019
    need to be specified to take advantage of it.  Specifically, they:
 
    o  MUST define a request header field that advertises the clients
-      preferences or capabilities, whose field-name SHOULD begin with
-      "Accept-".
+      preferences or capabilities.  Often, its field-name will begin
+      with "Accept-", but this is not required.
 
    o  MUST define the syntax of an available-value that will occur in
       Variants and Variant-Key.
