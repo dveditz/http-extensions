@@ -396,7 +396,7 @@ Internet-Draft              HTTP Client Hints              December 2019
 
    Implementers SHOULD support Client Hints opt-in mechanisms and MUST
    clear persisted opt-in preferences when any one of site data,
-   browsing history, browsing cache, or similar, are cleared.
+   browsing history, browsing cache, cookies, or similar, are cleared.
 
 5.  Cost of Sending Hints
 
@@ -602,6 +602,7 @@ B.8.  Since -07
 B.9.  Since -08
 
    o  PR 985: Describe the bytesize cost of hints.
+   o  PR 1001: Clear CH persistence when cookies are cleared.
 
 Acknowledgements
 
@@ -609,7 +610,6 @@ Acknowledgements
    Greenstein, Tarun Bansal, Roy Fielding, Vasiliy Faronov, Ted Hardie,
    Jonas Sicking, Martin Thomson, and numerous other members of the IETF
    HTTP Working Group for invaluable help and feedback.
-
 
 
 
