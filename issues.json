@@ -49,9 +49,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-12-06T16:53:27Z",
-    "updated_at": "2019-12-06T16:53:35Z",
+    "updated_at": "2019-12-10T14:21:21Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "## I wish\r\n\r\nto use `Digest` to implement resumeable uploads.\r\n\r\n## Note\r\n\r\nSee https://cloud.google.com/storage/docs/hashes-etags:\r\n\r\n- approach similar to digest 1\r\n\r\n>  The checksum(s) returned when downloading data from Cloud Storage cover the complete object \r\n> content. Thus, if you specify a request range there's no way to detect data corruption for that byte \r\n> range alone. \r\n\r\n- approach similar to digest 2\r\n\r\n> To protect against data corruption, Cloud Storage supports two types of hashes: CRC32C and \r\n> MD5 (described below). Google recommends that customers use CRC32C for all cases,\r\n \r\n\r\n "
@@ -99,7 +99,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-12-06T16:47:19Z",
-    "updated_at": "2019-12-06T16:47:42Z",
+    "updated_at": "2019-12-10T16:27:52Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -13446,9 +13446,9 @@
 
     ],
     "milestone": null,
-    "comments": 22,
+    "comments": 23,
     "created_at": "2019-03-11T14:32:26Z",
-    "updated_at": "2019-12-06T10:46:58Z",
+    "updated_at": "2019-12-10T01:27:24Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
