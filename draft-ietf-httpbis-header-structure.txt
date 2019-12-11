@@ -140,19 +140,19 @@ Internet-Draft         Structured Headers for HTTP         December 2019
    Appendix D.  Changes  . . . . . . . . . . . . . . . . . . . . . .  35
      D.1.  Since draft-ietf-httpbis-header-structure-14  . . . . . .  35
      D.2.  Since draft-ietf-httpbis-header-structure-13  . . . . . .  35
-     D.3.  Since draft-ietf-httpbis-header-structure-12  . . . . . .  35
+     D.3.  Since draft-ietf-httpbis-header-structure-12  . . . . . .  36
      D.4.  Since draft-ietf-httpbis-header-structure-11  . . . . . .  36
      D.5.  Since draft-ietf-httpbis-header-structure-10  . . . . . .  36
      D.6.  Since draft-ietf-httpbis-header-structure-09  . . . . . .  36
      D.7.  Since draft-ietf-httpbis-header-structure-08  . . . . . .  36
      D.8.  Since draft-ietf-httpbis-header-structure-07  . . . . . .  37
      D.9.  Since draft-ietf-httpbis-header-structure-06  . . . . . .  37
-     D.10. Since draft-ietf-httpbis-header-structure-05  . . . . . .  37
+     D.10. Since draft-ietf-httpbis-header-structure-05  . . . . . .  38
      D.11. Since draft-ietf-httpbis-header-structure-04  . . . . . .  38
      D.12. Since draft-ietf-httpbis-header-structure-03  . . . . . .  38
      D.13. Since draft-ietf-httpbis-header-structure-02  . . . . . .  38
      D.14. Since draft-ietf-httpbis-header-structure-01  . . . . . .  38
-     D.15. Since draft-ietf-httpbis-header-structure-00  . . . . . .  38
+     D.15. Since draft-ietf-httpbis-header-structure-00  . . . . . .  39
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  39
 
 1.  Introduction
@@ -534,7 +534,7 @@ Internet-Draft         Structured Headers for HTTP         December 2019
    whitespace, while names and values are separated by "=" (without
    whitespace).  For example:
 
-   Example-DictHeader: en="Applepie", da=*w4ZibGV0w6ZydGU=*
+   Example-DictHeader: en="Applepie", da=:w4ZibGV0w6ZydGU=:
 
    Members whose value is Boolean true MUST omit that value when
    serialised, unless it has parameters.  For example, here both "b" and
@@ -706,14 +706,14 @@ Internet-Draft         Structured Headers for HTTP         December 2019
 
    The ABNF for tokens in HTTP headers is:
 
-   sh-token = ALPHA *( tchar / ":" / "/" )
+   sh-token = ( ALPHA / "\*" ) *( tchar / ":" / "/" )
 
    Parsers MUST support tokens with at least 512 characters.
 
    Note that a Structured Header token allows the characters as the
    "token" ABNF rule defined in [RFC7230], with the exceptions that the
-   first character is required to be ALPHA, and ":" and "/" are also
-   allowed.
+   first character is required to be either ALPHA or "*", and ":" and
+   "/" are also allowed in subsequent characters.
 
 3.3.5.  Byte Sequences
 
@@ -730,13 +730,13 @@ Nottingham & Kamp         Expires June 13, 2020                [Page 13]
 Internet-Draft         Structured Headers for HTTP         December 2019
 
 
-   sh-binary = "*" *(base64) "*"
+   sh-binary = ":" *(base64) ":"
    base64    = ALPHA / DIGIT / "+" / "/" / "="
 
-   In HTTP headers, a byte sequence is delimited with asterisks and
-   encoded using base64 ([RFC4648], Section 4).  For example:
+   In HTTP headers, a byte sequence is delimited with colons and encoded
+   using base64 ([RFC4648], Section 4).  For example:
 
-   Example-BinaryHdr: *cHJldGVuZCB0aGlzIGlzIGJpbmFyeSBjb250ZW50Lg==*
+   Example-BinaryHdr: :cHJldGVuZCB0aGlzIGlzIGJpbmFyeSBjb250ZW50Lg==:
 
    Parsers MUST support byte sequences with at least 16384 octets after
    decoding.
@@ -1087,7 +1087,8 @@ Internet-Draft         Structured Headers for HTTP         December 2019
    Given a token as input_token, return an ASCII string suitable for use
    in a HTTP header value.
 
-   1.  If input_token is not a sequence of characters, or contains a
+   1.  If input_token is not a sequence of characters, the first
+       character is not ALPHA or "*", or the remaining contain a
        character not in tchar, ":" or "/", fail serialisation.
 
    2.  Let output be an empty string.
@@ -1105,15 +1106,14 @@ Internet-Draft         Structured Headers for HTTP         December 2019
 
    2.  Let output be an empty string.
 
-   3.  Append "*" to output.
+   3.  Append ":" to output.
 
    4.  Append the result of base64-encoding input_bytes as per
        [RFC4648], Section 4, taking account of the requirements below.
 
-   5.  Append "*" to output.
+   5.  Append ":" to output.
 
    6.  Return output.
-
 
 
 
@@ -1601,7 +1601,7 @@ Internet-Draft         Structured Headers for HTTP         December 2019
    Given an ASCII string as input_string, return a token. input_string
    is modified to remove the parsed value.
 
-   1.  If the first character of input_string is not ALPHA, fail
+   1.  If the first character of input_string is not ALPHA or "*", fail
        parsing.
 
    2.  Let output_string be an empty string.
@@ -1631,18 +1631,18 @@ Internet-Draft         Structured Headers for HTTP         December 2019
    Given an ASCII string as input_string, return a byte sequence.
    input_string is modified to remove the parsed value.
 
-   1.  If the first character of input_string is not "*", fail parsing.
+   1.  If the first character of input_string is not ":", fail parsing.
 
    2.  Discard the first character of input_string.
 
-   3.  If there is not a "*" character before the end of input_string,
+   3.  If there is not a ":" character before the end of input_string,
        fail parsing.
 
    4.  Let b64_content be the result of consuming content of
        input_string up to but not including the first instance of the
-       character "*".
+       character ":".
 
-   5.  Consume the "*" character at the beginning of input_string.
+   5.  Consume the ":" character at the beginning of input_string.
 
    6.  If b64_content contains a character not included in ALPHA, DIGIT,
        "+", "/" and "=", fail parsing.
@@ -1930,6 +1930,10 @@ D.1.  Since draft-ietf-httpbis-header-structure-14
 
    o  Disallow HTAB, replace OWS with spaces (#998).
 
+   o  Change byte sequence delimiters from "*" to ":" (#991).
+
+   o  Allow tokens to start with "*" (#991).
+
 D.2.  Since draft-ietf-httpbis-header-structure-13
 
    o  Editorial improvements.
@@ -1948,11 +1952,7 @@ D.2.  Since draft-ietf-httpbis-header-structure-13
 
    o  Disallow OWS before ";" delimiter in parameters (#961).
 
-D.3.  Since draft-ietf-httpbis-header-structure-12
 
-   o  Editorial improvements.
-
-   o  Reworked float serialisation (#896).
 
 
 
@@ -1961,6 +1961,12 @@ Nottingham & Kamp         Expires June 13, 2020                [Page 35]
 
 Internet-Draft         Structured Headers for HTTP         December 2019
 
+
+D.3.  Since draft-ietf-httpbis-header-structure-12
+
+   o  Editorial improvements.
+
+   o  Reworked float serialisation (#896).
 
    o  Don't add a trailing space in inner-list (#904).
 
@@ -2002,6 +2008,16 @@ D.7.  Since draft-ietf-httpbis-header-structure-08
 
    o  Disallow whitespace before items properly (#703).
 
+
+
+
+
+
+Nottingham & Kamp         Expires June 13, 2020                [Page 36]
+
+Internet-Draft         Structured Headers for HTTP         December 2019
+
+
    o  Created "key" for use in dictionaries and parameters, rather than
       relying on identifier (#702).  Identifiers have a separate minimum
       supported size.
@@ -2010,13 +2026,6 @@ D.7.  Since draft-ietf-httpbis-header-structure-08
       include all of ALPHA, ".", ":", and "%" (#702).
 
    o  Use "?" instead of "!" to indicate a Boolean (#719).
-
-
-
-Nottingham & Kamp         Expires June 13, 2020                [Page 36]
-
-Internet-Draft         Structured Headers for HTTP         December 2019
-
 
    o  Added "Intentionally Strict Processing" (#684).
 
@@ -2057,15 +2066,6 @@ D.9.  Since draft-ietf-httpbis-header-structure-06
 
    o  Explicitly check for integers that violate constraints.
 
-D.10.  Since draft-ietf-httpbis-header-structure-05
-
-   o  Reorganise specification to separate parsing out.
-
-   o  Allow referencing specs to use ABNF.
-
-   o  Define serialisation algorithms.
-
-
 
 
 
@@ -2073,6 +2073,14 @@ Nottingham & Kamp         Expires June 13, 2020                [Page 37]
 
 Internet-Draft         Structured Headers for HTTP         December 2019
 
+
+D.10.  Since draft-ietf-httpbis-header-structure-05
+
+   o  Reorganise specification to separate parsing out.
+
+   o  Allow referencing specs to use ABNF.
+
+   o  Define serialisation algorithms.
 
    o  Refine relationship between ABNF, parsing and serialisation
       algorithms.
@@ -2113,14 +2121,6 @@ D.14.  Since draft-ietf-httpbis-header-structure-01
 
    o  Replaced with draft-nottingham-structured-headers.
 
-D.15.  Since draft-ietf-httpbis-header-structure-00
-
-   o  Added signed 64bit integer type.
-
-   o  Drop UTF8, and settle on BCP137 ::EmbeddedUnicodeChar for h1-
-      unicode-string.
-
-   o  Change h1_blob delimiter to ":" since "'" is valid t_char
 
 
 
@@ -2129,6 +2129,15 @@ Nottingham & Kamp         Expires June 13, 2020                [Page 38]
 
 Internet-Draft         Structured Headers for HTTP         December 2019
 
+
+D.15.  Since draft-ietf-httpbis-header-structure-00
+
+   o  Added signed 64bit integer type.
+
+   o  Drop UTF8, and settle on BCP137 ::EmbeddedUnicodeChar for h1-
+      unicode-string.
+
+   o  Change h1_blob delimiter to ":" since "'" is valid t_char
 
 Authors' Addresses
 
@@ -2143,15 +2152,6 @@ Authors' Addresses
    The Varnish Cache Project
 
    Email: phk@varnish-cache.org
-
-
-
-
-
-
-
-
-
 
 
 
