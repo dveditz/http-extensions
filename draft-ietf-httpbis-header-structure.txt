@@ -243,7 +243,7 @@ Internet-Draft         Structured Headers for HTTP         December 2019
    behaviours, and the Augmented Backus-Naur Form (ABNF) notation of
    [RFC5234] to illustrate expected syntax in HTTP header fields.  In
    doing so, uses the VCHAR, SP, DIGIT, ALPHA and DQUOTE rules from
-   [RFC5234].  It also includes the OWS and tchar rules from [RFC7230].
+   [RFC5234].  It also includes the tchar rule from [RFC7230].
 
    When parsing from HTTP header fields, implementations MUST follow the
    algorithms, but MAY vary in implementation so as the behaviours are
@@ -402,7 +402,7 @@ Internet-Draft         Structured Headers for HTTP         December 2019
 
    The ABNF for lists in HTTP headers is:
 
-   sh-list       = list-member *( OWS "," OWS list-member )
+   sh-list       = list-member *( *SP "," *SP list-member )
    list-member   = sh-item / inner-list
 
    In HTTP headers, each member is separated by a comma and optional
@@ -440,7 +440,7 @@ Internet-Draft         Structured Headers for HTTP         December 2019
 
    The ABNF for inner-lists in HTTP headers is:
 
-   inner-list    = "(" OWS [ sh-item *( SP OWS sh-item ) OWS ] ")"
+   inner-list    = "(" *SP [ sh-item *( 1*SP sh-item ) *SP ] ")"
                    *parameter
 
 
@@ -478,7 +478,7 @@ Internet-Draft         Structured Headers for HTTP         December 2019
 
    The ABNF for parameters in HTTP headers is:
 
-   parameter     = ";" OWS param-name [ "=" param-value ]
+   parameter     = ";" *SP param-name [ "=" param-value ]
    param-name    = key
    key           = lcalpha *( lcalpha / DIGIT / "_" / "-" / "*" )
    lcalpha       = %x61-7A ; a-z
@@ -525,7 +525,7 @@ Internet-Draft         Structured Headers for HTTP         December 2019
 
    The ABNF for dictionaries in HTTP headers is:
 
-   sh-dictionary  = dict-member *( OWS "," OWS dict-member )
+   sh-dictionary  = dict-member *( *SP "," *SP dict-member )
    dict-member    = member-name [ "=" member-value ]
    member-name    = key
    member-value   = sh-item / inner-list
@@ -815,7 +815,7 @@ Internet-Draft         Structured Headers for HTTP         December 2019
 
            1.  Append a COMMA to output.
 
-           2.  Append a single WS to output.
+           2.  Append a single SP to output.
 
    3.  Return output.
 
@@ -832,7 +832,7 @@ Internet-Draft         Structured Headers for HTTP         December 2019
        1.  Append the result of running Serializing an Item
            (Section 4.1.3) with (member_value, parameters) to output.
 
-       2.  If more values remain in inner_list, append a single WS to
+       2.  If more values remain in inner_list, append a single SP to
            output.
 
 
@@ -928,7 +928,7 @@ Internet-Draft         Structured Headers for HTTP         December 2019
 
        1.  Append a COMMA to output.
 
-       2.  Append a single WS to output.
+       2.  Append a single SP to output.
 
    5.  Return output.
 
@@ -1162,7 +1162,7 @@ Internet-Draft         Structured Headers for HTTP         December 2019
    1.  Convert input_bytes into an ASCII string input_string; if
        conversion fails, fail parsing.
 
-   2.  Discard any leading OWS from input_string.
+   2.  Discard any leading SP characters from input_string.
 
    3.  If header_type is "list", let output be the result of running
        Parsing a List (Section 4.2.1) with input_string.
@@ -1181,7 +1181,7 @@ Internet-Draft         Structured Headers for HTTP         December 2019
    5.  If header_type is "item", let output be the result of running
        Parsing an Item (Section 4.2.3) with input_string.
 
-   6.  Discard any leading OWS from input_string.
+   6.  Discard any leading SP characters from input_string.
 
    7.  If input_string is not empty, fail parsing.
 
@@ -1239,14 +1239,14 @@ Internet-Draft         Structured Headers for HTTP         December 2019
        1.  Append the result of running Parsing an Item or Inner List
            (Section 4.2.1.1) with input_string to members.
 
-       2.  Discard any leading OWS from input_string.
+       2.  Discard any leading SP characters from input_string.
 
        3.  If input_string is empty, return members.
 
        4.  Consume the first character of input_string; if it is not
            COMMA, fail parsing.
 
-       5.  Discard any leading OWS from input_string.
+       5.  Discard any leading SP characters from input_string.
 
        6.  If input_string is empty, there is a trailing comma; fail
            parsing.
@@ -1281,7 +1281,7 @@ Internet-Draft         Structured Headers for HTTP         December 2019
 
    3.  While input_string is not empty:
 
-       1.  Discard any leading OWS from input_string.
+       1.  Discard any leading SP characters from input_string.
 
 
 
@@ -1350,14 +1350,14 @@ Internet-Draft         Structured Headers for HTTP         December 2019
 
        5.   Add name this_key with value member to dictionary.
 
-       6.   Discard any leading OWS from input_string.
+       6.   Discard any leading SP characters from input_string.
 
        7.   If input_string is empty, return dictionary.
 
        8.   Consume the first character of input_string; if it is not
             COMMA, fail parsing.
 
-       9.   Discard any leading OWS from input_string.
+       9.   Discard any leading SP characters from input_string.
 
        10.  If input_string is empty, there is a trailing comma; fail
             parsing.
@@ -1430,7 +1430,7 @@ Internet-Draft         Structured Headers for HTTP         December 2019
 
        2.  Consume a ";" character from the beginning of input_string.
 
-       3.  Discard any leading OWS from input_string.
+       3.  Discard any leading SP characters from input_string.
 
        4.  let param_name be the result of running Parsing a Key
            (Section 4.2.3.3) with input_string.
@@ -1928,6 +1928,8 @@ D.1.  Since draft-ietf-httpbis-header-structure-14
    o  Explain more about splitting dictionaries and lists across header
       instances (#997).
 
+   o  Disallow HTAB, replace OWS with spaces (#998).
+
 D.2.  Since draft-ietf-httpbis-header-structure-13
 
    o  Editorial improvements.
@@ -1952,8 +1954,6 @@ D.3.  Since draft-ietf-httpbis-header-structure-12
 
    o  Reworked float serialisation (#896).
 
-   o  Don't add a trailing space in inner-list (#904).
-
 
 
 
@@ -1961,6 +1961,8 @@ Nottingham & Kamp         Expires June 13, 2020                [Page 35]
 
 Internet-Draft         Structured Headers for HTTP         December 2019
 
+
+   o  Don't add a trailing space in inner-list (#904).
 
 D.4.  Since draft-ietf-httpbis-header-structure-11
 
@@ -2009,14 +2011,14 @@ D.7.  Since draft-ietf-httpbis-header-structure-08
 
    o  Use "?" instead of "!" to indicate a Boolean (#719).
 
-   o  Added "Intentionally Strict Processing" (#684).
-
 
 
 Nottingham & Kamp         Expires June 13, 2020                [Page 36]
 
 Internet-Draft         Structured Headers for HTTP         December 2019
 
+
+   o  Added "Intentionally Strict Processing" (#684).
 
    o  Gave better names for referring specs to use in Parameterised
       Lists (#720).
@@ -2063,8 +2065,6 @@ D.10.  Since draft-ietf-httpbis-header-structure-05
 
    o  Define serialisation algorithms.
 
-   o  Refine relationship between ABNF, parsing and serialisation
-      algorithms.
 
 
 
@@ -2073,6 +2073,9 @@ Nottingham & Kamp         Expires June 13, 2020                [Page 37]
 
 Internet-Draft         Structured Headers for HTTP         December 2019
 
+
+   o  Refine relationship between ABNF, parsing and serialisation
+      algorithms.
 
 D.11.  Since draft-ietf-httpbis-header-structure-04
 
@@ -2118,9 +2121,6 @@ D.15.  Since draft-ietf-httpbis-header-structure-00
       unicode-string.
 
    o  Change h1_blob delimiter to ":" since "'" is valid t_char
-
-
-
 
 
 
