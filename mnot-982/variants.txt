@@ -4,9 +4,9 @@
 
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
-Updates: 7234 (if approved)                            December 11, 2019
+Updates: 7234 (if approved)                              January 6, 2020
 Intended status: Standards Track
-Expires: June 13, 2020
+Expires: July 9, 2020
 
 
                       HTTP Representation Variants
@@ -49,18 +49,18 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on June 13, 2020.
+   This Internet-Draft will expire on July 9, 2020.
 
 
 
-Nottingham                Expires June 13, 2020                 [Page 1]
+Nottingham                Expires July 9, 2020                  [Page 1]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
 Copyright Notice
 
-   Copyright (c) 2019 IETF Trust and the persons identified as the
+   Copyright (c) 2020 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Nottingham                Expires June 13, 2020                 [Page 2]
+Nottingham                Expires July 9, 2020                  [Page 2]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
 1.  Introduction
@@ -165,9 +165,9 @@ Internet-Draft        HTTP Representation Variants         December 2019
 
 
 
-Nottingham                Expires June 13, 2020                 [Page 3]
+Nottingham                Expires July 9, 2020                  [Page 3]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
    This specification introduces the HTTP Variants response header field
@@ -221,9 +221,9 @@ Internet-Draft        HTTP Representation Variants         December 2019
 
 
 
-Nottingham                Expires June 13, 2020                 [Page 4]
+Nottingham                Expires July 9, 2020                  [Page 4]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
 1.1.  Notational Conventions
@@ -277,9 +277,9 @@ Internet-Draft        HTTP Representation Variants         December 2019
 
 
 
-Nottingham                Expires June 13, 2020                 [Page 5]
+Nottingham                Expires July 9, 2020                  [Page 5]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
    a recipient can infer that the only content-coding available for that
@@ -333,9 +333,9 @@ Internet-Draft        HTTP Representation Variants         December 2019
 
 
 
-Nottingham                Expires June 13, 2020                 [Page 6]
+Nottingham                Expires July 9, 2020                  [Page 6]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
    draft number being implemented.  For example, implementations of
@@ -389,9 +389,9 @@ Internet-Draft        HTTP Representation Variants         December 2019
 
 
 
-Nottingham                Expires June 13, 2020                 [Page 7]
+Nottingham                Expires July 9, 2020                  [Page 7]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
    Each inner-list member is treated as identifying an available-value
@@ -445,9 +445,9 @@ Internet-Draft        HTTP Representation Variants         December 2019
 
 
 
-Nottingham                Expires June 13, 2020                 [Page 8]
+Nottingham                Expires July 9, 2020                  [Page 8]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
    header field specified by the final RFC, with "##" replaced by the
@@ -501,9 +501,9 @@ Internet-Draft        HTTP Representation Variants         December 2019
 
 
 
-Nottingham                Expires June 13, 2020                 [Page 9]
+Nottingham                Expires July 9, 2020                  [Page 9]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
                2.  Let sorted-values be the result of running the
@@ -557,9 +557,9 @@ Internet-Draft        HTTP Representation Variants         December 2019
 
 
 
-Nottingham                Expires June 13, 2020                [Page 10]
+Nottingham                Expires July 9, 2020                 [Page 10]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
    4.  Return possible-keys.
@@ -613,9 +613,9 @@ Internet-Draft        HTTP Representation Variants         December 2019
 
 
 
-Nottingham                Expires June 13, 2020                [Page 11]
+Nottingham                Expires July 9, 2020                 [Page 11]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
    Then the sorted-variants would be:
@@ -669,9 +669,9 @@ Internet-Draft        HTTP Representation Variants         December 2019
 
 
 
-Nottingham                Expires June 13, 2020                [Page 12]
+Nottingham                Expires July 9, 2020                 [Page 12]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
    Then the cache needs to forward the request to the origin server,
@@ -725,9 +725,9 @@ Internet-Draft        HTTP Representation Variants         December 2019
 
 
 
-Nottingham                Expires June 13, 2020                [Page 13]
+Nottingham                Expires July 9, 2020                 [Page 13]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
    not supported by a receiving cache, it will "downgrade" to Vary
@@ -781,9 +781,9 @@ Internet-Draft        HTTP Representation Variants         December 2019
 
 
 
-Nottingham                Expires June 13, 2020                [Page 14]
+Nottingham                Expires July 9, 2020                 [Page 14]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
 5.1.2.  Multiple Variants
@@ -837,9 +837,9 @@ Internet-Draft        HTTP Representation Variants         December 2019
 
 
 
-Nottingham                Expires June 13, 2020                [Page 15]
+Nottingham                Expires July 9, 2020                 [Page 15]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
    HTTP/1.1 200 OK
@@ -893,9 +893,9 @@ Internet-Draft        HTTP Representation Variants         December 2019
 
 
 
-Nottingham                Expires June 13, 2020                [Page 16]
+Nottingham                Expires July 9, 2020                 [Page 16]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
    o  Author/Change Controller: IETF
@@ -949,9 +949,9 @@ Internet-Draft        HTTP Representation Variants         December 2019
 
 
 
-Nottingham                Expires June 13, 2020                [Page 17]
+Nottingham                Expires July 9, 2020                 [Page 17]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
    [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
@@ -1005,9 +1005,9 @@ Internet-Draft        HTTP Representation Variants         December 2019
 
 
 
-Nottingham                Expires June 13, 2020                [Page 18]
+Nottingham                Expires July 9, 2020                 [Page 18]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
    [3] https://github.com/httpwg/http-extensions/labels/variants
@@ -1061,9 +1061,9 @@ A.1.  Accept
 
 
 
-Nottingham                Expires June 13, 2020                [Page 19]
+Nottingham                Expires July 9, 2020                 [Page 19]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
 A.2.  Accept-Encoding
@@ -1117,9 +1117,9 @@ A.3.  Accept-Language
 
 
 
-Nottingham                Expires June 13, 2020                [Page 20]
+Nottingham                Expires July 9, 2020                 [Page 20]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
    1.  Let preferred-available be an empty list.
@@ -1173,9 +1173,9 @@ A.4.  Cookie
 
 
 
-Nottingham                Expires June 13, 2020                [Page 21]
+Nottingham                Expires July 9, 2020                 [Page 21]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
    A simple example is allowing a page designed for users that aren't
@@ -1229,9 +1229,9 @@ Acknowledgements
 
 
 
-Nottingham                Expires June 13, 2020                [Page 22]
+Nottingham                Expires July 9, 2020                 [Page 22]
 
-Internet-Draft        HTTP Representation Variants         December 2019
+Internet-Draft        HTTP Representation Variants          January 2020
 
 
 Author's Address
@@ -1285,4 +1285,4 @@ Author's Address
 
 
 
-Nottingham                Expires June 13, 2020                [Page 23]
+Nottingham                Expires July 9, 2020                 [Page 23]
