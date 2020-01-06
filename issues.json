@@ -452,7 +452,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -461,8 +461,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-12-16T05:01:43Z",
-    "updated_at": "2019-12-16T05:51:21Z",
-    "closed_at": null,
+    "updated_at": "2020-01-06T03:07:00Z",
+    "closed_at": "2020-01-06T03:07:00Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/1011",
@@ -623,7 +623,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-12-11T05:56:59Z",
-    "updated_at": "2019-12-16T04:28:29Z",
+    "updated_at": "2020-01-06T03:07:01Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "pull_request": {
@@ -54016,9 +54016,9 @@
       }
     ],
     "milestone": null,
-    "comments": 10,
+    "comments": 18,
     "created_at": "2016-03-15T14:26:29Z",
-    "updated_at": "2020-01-03T10:39:19Z",
+    "updated_at": "2020-01-04T11:54:30Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "As a part of discussion in whatwg/html#804 I've made a [research](http://inikulin.github.io/cookie-compat/) of the modern browsers compatibility with the RFC 6265. It appears that all browsers nowadays allows cookies without key or (in case of Safari) without value, thus making it de facto standard. However, it's debatable how cookies like `foo;` should be treated: as the cookie without value or without key. Thinking of cookie jar as some kind of key/value store makes it more logical to treat such cookie as cookies without value, but on the other hand, currently most implementers treats them as the cookies with the special empty key.\n"
