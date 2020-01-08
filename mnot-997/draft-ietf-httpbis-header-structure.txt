@@ -472,9 +472,9 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
    Parameters are an ordered map of key-values pairs that are associated
    with an item (Section 3.3) or inner-list (Section 3.1.1).  The keys
-   are required to be unique within the scope of a map of parameters,
-   and the values are bare items (i.e., they themselves cannot be
-   parameterised; see Section 3.3).
+   are unique within the scope of a map of parameters, and the values
+   are bare items (i.e., they themselves cannot be parameterised; see
+   Section 3.3).
 
    The ABNF for parameters in HTTP headers is:
 
@@ -516,8 +516,8 @@ Internet-Draft         Structured Headers for HTTP          January 2020
    Dictionaries are ordered maps of name-value pairs, where the names
    are short, textual strings and the values are items (Section 3.3) or
    arrays of items, both of which can be parameterised (Section 3.1.2).
-   There can be zero or more members, and their names are required to be
-   unique in the scope of the dictionary they occur within.
+   There can be zero or more members, and their names are unique in the
+   scope of the dictionary they occur within.
 
    Implementations MUST provide access to dictionaries both by index and
    by name.  Specifications MAY use either means of accessing the
@@ -1414,12 +1414,9 @@ Internet-Draft         Structured Headers for HTTP          January 2020
        4.  let param_name be the result of running Parsing a Key
            (Section 4.2.3.3) with input_string.
 
-       5.  If param_name is already present in parameters, there is a
-           duplicate; fail parsing.
+       5.  Let param_value be Boolean true.
 
-       6.  Let param_value be Boolean true.
-
-       7.  If the first character of input_string is "=":
+       6.  If the first character of input_string is "=":
 
            1.  Consume the "=" character at the beginning of
                input_string.
@@ -1427,7 +1424,9 @@ Internet-Draft         Structured Headers for HTTP          January 2020
            2.  Let param_value be the result of running Parsing a Bare
                Item (Section 4.2.3.1) with input_string.
 
-       8.  Append key param_name with value param_value to parameters.
+       7.  Append key param_name with value param_value to parameters.
+           If parameters already contains a name param_name (comparing
+           character-for-character), overwrite its value.
 
    3.  Return parameters.
 
@@ -1450,6 +1449,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
            input_string.
 
        3.  Append char to output_string.
+
 
 
 
@@ -1932,8 +1932,8 @@ D.1.  Since draft-ietf-httpbis-header-structure-14
    o  Round the fractional component of decimal, rather than truncating
       it (#982).
 
-   o  Handle duplicate dictionary values by overwriting, rather than
-      failing (#997).
+   o  Handle duplicate dictionary and parameter keys by overwriting
+      their values, rather than failing (#997).
 
 D.2.  Since draft-ietf-httpbis-header-structure-13
 
