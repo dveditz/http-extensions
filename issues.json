@@ -174,7 +174,7 @@
     "id": 541429769,
     "node_id": "MDU6SXNzdWU1NDE0Mjk3Njk=",
     "number": 1015,
-    "title": "Structured Headers and TLS's GREASE",
+    "title": "Structured Headers and GREASE",
     "user": {
       "login": "annevk",
       "id": 1544111,
@@ -213,9 +213,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 2,
     "created_at": "2019-12-22T09:46:47Z",
-    "updated_at": "2019-12-23T16:06:39Z",
+    "updated_at": "2020-01-06T08:46:27Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "@mikewest's Fetch Metadata will add a bunch of headers that are supposedly structured headers, but given their simplicity can be compared using equality on servers. If servers did that it would likely prevent adding parameters in the future however or making other supposedly-compatible extensions.\r\n\r\nShould we accept this for headers clients transmit to servers or should we do something akin to TLS's GREASE?"
@@ -461,7 +461,7 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-12-16T05:01:43Z",
-    "updated_at": "2020-01-06T03:07:00Z",
+    "updated_at": "2020-01-06T03:34:20Z",
     "closed_at": "2020-01-06T03:07:00Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -614,7 +614,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -623,8 +623,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-12-11T05:56:59Z",
-    "updated_at": "2020-01-06T03:07:01Z",
-    "closed_at": null,
+    "updated_at": "2020-01-08T00:14:50Z",
+    "closed_at": "2020-01-08T00:14:48Z",
     "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/1008",
@@ -2115,7 +2115,7 @@
         "description": null
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -2124,8 +2124,8 @@
     "milestone": null,
     "comments": 23,
     "created_at": "2019-11-07T20:19:54Z",
-    "updated_at": "2019-12-11T05:57:09Z",
-    "closed_at": null,
+    "updated_at": "2020-01-08T00:14:48Z",
+    "closed_at": "2020-01-08T00:14:48Z",
     "author_association": "NONE",
     "body": "(Related to now-closed #896)\r\n\r\nShould implementations be able to store parsed floats in IEEE754 binary64? And if so, should we expect that they round trip between parsing and serialization? It seems like the current limits were designed to support that notion, but there are cases where they do not.\r\n\r\n(Note, this isn't about being able to serialize arbitrary C++ doubles; the spec sensibly only supports a tiny subset of all possible 64-bit floats. This is about whether `x == Serialize(Parse(x))` should always be true)\r\n\r\nIEEE 754 guarantees that if a string with no more than 15 digits is converted to a double and then back to a string, it should result in the original string, but that appears to require rounding in some cases; truncation, which the serialization algorithm calls for, can change the string representation.\r\n\r\nParsing the string \"12345678901234.1\" as a float, for instance, results in a binary64 representation with value 0x42a674e79c5fe433, whose exact decimal expansion is 12345678901234.099609375. Following the text of the serialization algorithm, `fractional_digits_avail` will be 1, and so the number will be serialized as \"12345678901234.0\"\r\n\r\nIt appears, as an implementer, that the only way to ensure that a float parsed from a valid string can be serialized back to the original string is to store it as a fixed point decimal in two parts, or else use a float with >64 bits of precision for storage."
   },
@@ -8699,17 +8699,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-07-22T21:41:32Z",
-    "updated_at": "2019-07-22T21:41:32Z",
-    "closed_at": null,
+    "updated_at": "2020-01-07T10:18:35Z",
+    "closed_at": "2020-01-07T10:18:35Z",
     "author_association": "CONTRIBUTOR",
     "body": "Client Hints adoption have suffered from their absence in the very-first navigational requests, which prevents origins from adapting navigational (e.g. HTML) responses. the HTTPSSVC proposal gives us an opportunity to push the server opt-in earlier, and make sure the opt-in is available by the time the very first request to the origin is sent."
   },
@@ -14250,9 +14250,9 @@
 
     ],
     "milestone": null,
-    "comments": 23,
+    "comments": 24,
     "created_at": "2019-03-11T14:32:26Z",
-    "updated_at": "2019-12-10T01:27:24Z",
+    "updated_at": "2020-01-07T10:21:11Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -54016,9 +54016,9 @@
       }
     ],
     "milestone": null,
-    "comments": 18,
+    "comments": 21,
     "created_at": "2016-03-15T14:26:29Z",
-    "updated_at": "2020-01-04T11:54:30Z",
+    "updated_at": "2020-01-07T10:01:16Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "As a part of discussion in whatwg/html#804 I've made a [research](http://inikulin.github.io/cookie-compat/) of the modern browsers compatibility with the RFC 6265. It appears that all browsers nowadays allows cookies without key or (in case of Safari) without value, thus making it de facto standard. However, it's debatable how cookies like `foo;` should be treated: as the cookie without value or without key. Thinking of cookie jar as some kind of key/value store makes it more logical to treat such cookie as cookies without value, but on the other hand, currently most implementers treats them as the cookies with the special empty key.\n"
