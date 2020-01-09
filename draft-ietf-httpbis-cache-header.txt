@@ -4,8 +4,8 @@
 
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
-Intended status: Standards Track                         January 8, 2019
-Expires: July 11, 2020
+Intended status: Standards Track                         January 9, 2019
+Expires: July 12, 2020
 
 
                  The Cache-Status HTTP Response Header
@@ -44,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 11, 2020.
+   This Internet-Draft will expire on July 12, 2020.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Nottingham                Expires July 11, 2020                 [Page 1]
+Nottingham                Expires July 12, 2020                 [Page 1]
 
 Internet-Draft             Cache-Status Header              January 2019
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Nottingham                Expires July 11, 2020                 [Page 2]
+Nottingham                Expires July 12, 2020                 [Page 2]
 
 Internet-Draft             Cache-Status Header              January 2019
 
@@ -165,7 +165,7 @@ Internet-Draft             Cache-Status Header              January 2019
 
 
 
-Nottingham                Expires July 11, 2020                 [Page 3]
+Nottingham                Expires July 12, 2020                 [Page 3]
 
 Internet-Draft             Cache-Status Header              January 2019
 
@@ -221,7 +221,7 @@ Internet-Draft             Cache-Status Header              January 2019
 
 
 
-Nottingham                Expires July 11, 2020                 [Page 4]
+Nottingham                Expires July 12, 2020                 [Page 4]
 
 Internet-Draft             Cache-Status Header              January 2019
 
@@ -277,7 +277,7 @@ Internet-Draft             Cache-Status Header              January 2019
 
 
 
-Nottingham                Expires July 11, 2020                 [Page 5]
+Nottingham                Expires July 12, 2020                 [Page 5]
 
 Internet-Draft             Cache-Status Header              January 2019
 
@@ -333,7 +333,7 @@ Internet-Draft             Cache-Status Header              January 2019
 
 
 
-Nottingham                Expires July 11, 2020                 [Page 6]
+Nottingham                Expires July 12, 2020                 [Page 6]
 
 Internet-Draft             Cache-Status Header              January 2019
 
@@ -389,7 +389,7 @@ Internet-Draft             Cache-Status Header              January 2019
 
 
 
-Nottingham                Expires July 11, 2020                 [Page 7]
+Nottingham                Expires July 12, 2020                 [Page 7]
 
 Internet-Draft             Cache-Status Header              January 2019
 
@@ -445,4 +445,4 @@ Author's Address
 
 
 
-Nottingham                Expires July 11, 2020                 [Page 8]
+Nottingham                Expires July 12, 2020                 [Page 8]

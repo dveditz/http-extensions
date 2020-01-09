@@ -5,7 +5,7 @@
 HTTP Working Group                                           I. Grigorik
 Internet-Draft                                                  Y. Weiss
 Intended status: Experimental                                     Google
-Expires: July 11, 2020                                   January 8, 2020
+Expires: July 12, 2020                                   January 9, 2020
 
 
                            HTTP Client Hints
@@ -53,12 +53,12 @@ Status of This Memo
 
 
 
-Grigorik & Weiss          Expires July 11, 2020                 [Page 1]
+Grigorik & Weiss          Expires July 12, 2020                 [Page 1]
 
 Internet-Draft              HTTP Client Hints               January 2020
 
 
-   This Internet-Draft will expire on July 11, 2020.
+   This Internet-Draft will expire on July 12, 2020.
 
 Copyright Notice
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Grigorik & Weiss          Expires July 11, 2020                 [Page 2]
+Grigorik & Weiss          Expires July 12, 2020                 [Page 2]
 
 Internet-Draft              HTTP Client Hints               January 2020
 
@@ -165,7 +165,7 @@ Internet-Draft              HTTP Client Hints               January 2020
 
 
 
-Grigorik & Weiss          Expires July 11, 2020                 [Page 3]
+Grigorik & Weiss          Expires July 12, 2020                 [Page 3]
 
 Internet-Draft              HTTP Client Hints               January 2020
 
@@ -221,7 +221,7 @@ Internet-Draft              HTTP Client Hints               January 2020
 
 
 
-Grigorik & Weiss          Expires July 11, 2020                 [Page 4]
+Grigorik & Weiss          Expires July 12, 2020                 [Page 4]
 
 Internet-Draft              HTTP Client Hints               January 2020
 
@@ -277,7 +277,7 @@ Internet-Draft              HTTP Client Hints               January 2020
 
 
 
-Grigorik & Weiss          Expires July 11, 2020                 [Page 5]
+Grigorik & Weiss          Expires July 12, 2020                 [Page 5]
 
 Internet-Draft              HTTP Client Hints               January 2020
 
@@ -333,7 +333,7 @@ Internet-Draft              HTTP Client Hints               January 2020
 
 
 
-Grigorik & Weiss          Expires July 11, 2020                 [Page 6]
+Grigorik & Weiss          Expires July 12, 2020                 [Page 6]
 
 Internet-Draft              HTTP Client Hints               January 2020
 
@@ -389,7 +389,7 @@ Internet-Draft              HTTP Client Hints               January 2020
 
 
 
-Grigorik & Weiss          Expires July 11, 2020                 [Page 7]
+Grigorik & Weiss          Expires July 12, 2020                 [Page 7]
 
 Internet-Draft              HTTP Client Hints               January 2020
 
@@ -445,7 +445,7 @@ Internet-Draft              HTTP Client Hints               January 2020
 
 
 
-Grigorik & Weiss          Expires July 11, 2020                 [Page 8]
+Grigorik & Weiss          Expires July 12, 2020                 [Page 8]
 
 Internet-Draft              HTTP Client Hints               January 2020
 
@@ -501,7 +501,7 @@ Internet-Draft              HTTP Client Hints               January 2020
 
 
 
-Grigorik & Weiss          Expires July 11, 2020                 [Page 9]
+Grigorik & Weiss          Expires July 12, 2020                 [Page 9]
 
 Internet-Draft              HTTP Client Hints               January 2020
 
@@ -557,7 +557,7 @@ B.2.  Since -01
 
 
 
-Grigorik & Weiss          Expires July 11, 2020                [Page 10]
+Grigorik & Weiss          Expires July 12, 2020                [Page 10]
 
 Internet-Draft              HTTP Client Hints               January 2020
 
@@ -613,7 +613,7 @@ Acknowledgements
 
 
 
-Grigorik & Weiss          Expires July 11, 2020                [Page 11]
+Grigorik & Weiss          Expires July 12, 2020                [Page 11]
 
 Internet-Draft              HTTP Client Hints               January 2020
 
@@ -669,4 +669,4 @@ Authors' Addresses
 
 
 
-Grigorik & Weiss          Expires July 11, 2020                [Page 12]
+Grigorik & Weiss          Expires July 12, 2020                [Page 12]
