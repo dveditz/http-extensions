@@ -158,7 +158,7 @@ Internet-Draft  Cookies: HTTP State Management Mechanism    January 2020
      10.2.  Informative References . . . . . . . . . . . . . . . . .  46
      10.3.  URIs . . . . . . . . . . . . . . . . . . . . . . . . . .  48
    Appendix A.  Changes  . . . . . . . . . . . . . . . . . . . . . .  48
-     A.1.  draft-ietf-httpbis-rfc6265bis-00  . . . . . . . . . . . .  48
+     A.1.  draft-ietf-httpbis-rfc6265bis-00  . . . . . . . . . . . .  49
      A.2.  draft-ietf-httpbis-rfc6265bis-01  . . . . . . . . . . . .  49
      A.3.  draft-ietf-httpbis-rfc6265bis-02  . . . . . . . . . . . .  49
      A.4.  draft-ietf-httpbis-rfc6265bis-03  . . . . . . . . . . . .  50
@@ -1294,21 +1294,22 @@ Internet-Draft  Cookies: HTTP State Management Mechanism    January 2020
            contained in the set-cookie-string, and the unparsed-
            attributes is the empty string.
 
-   2.  If the name-value-pair string lacks a %x3D ("=") character,
-       ignore the set-cookie-string entirely.
+   2.  If the name-value-pair string lacks a %x3D ("=") character, then
+       the name string is empty, and the value string is the value of
+       name-value-pair.
 
-   3.  The (possibly empty) name string consists of the characters up
-       to, but not including, the first %x3D ("=") character, and the
-       (possibly empty) value string consists of the characters after
-       the first %x3D ("=") character.
+       Otherwise, the name string consists of the characters up to, but
+       not including, the first %x3D ("=") character, and the (possibly
+       empty) value string consists of the characters after the first
+       %x3D ("=") character.
 
-   4.  Remove any leading or trailing WSP characters from the name
+   3.  Remove any leading or trailing WSP characters from the name
        string and the value string.
 
-   5.  If the name string is empty, ignore the set-cookie-string
-       entirely.
+   4.  If both the name string and the value string are empty, ignore
+       the set-cookie-string entirely.
 
-   6.  The cookie-name is the name string, and the cookie-value is the
+   5.  The cookie-name is the name string, and the cookie-value is the
        value string.
 
    The user agent MUST use an algorithm equivalent to the following
@@ -1337,7 +1338,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism    January 2020
        1.  The (possibly empty) attribute-name string consists of the
            characters up to, but not including, the first %x3D ("=")
            character, and the (possibly empty) attribute-value string
-
 
 
 
@@ -2672,11 +2672,11 @@ Internet-Draft  Cookies: HTTP State Management Mechanism    January 2020
 
    [18] https://github.com/httpwg/http-extensions/issues/594
 
+   [19] https://github.com/httpwg/http-extensions/issues/159
+
+   [20] https://github.com/httpwg/http-extensions/issues/159
+
 Appendix A.  Changes
-
-A.1.  draft-ietf-httpbis-rfc6265bis-00
-
-   o  Port [RFC6265] to Markdown.  No (intentional) normative changes.
 
 
 
@@ -2689,6 +2689,10 @@ Barth & West              Expires July 13, 2020                [Page 48]
 
 Internet-Draft  Cookies: HTTP State Management Mechanism    January 2020
 
+
+A.1.  draft-ietf-httpbis-rfc6265bis-00
+
+   o  Port [RFC6265] to Markdown.  No (intentional) normative changes.
 
 A.2.  draft-ietf-httpbis-rfc6265bis-01
 
@@ -2734,10 +2738,6 @@ A.3.  draft-ietf-httpbis-rfc6265bis-02
          attribute: https://github.com/httpwg/http-extensions/issues/222
          [11]
 
-      *  Expanded the options for dealing with third-party cookies to
-         include a brief mention of partitioning based on first-party:
-         https://github.com/httpwg/http-extensions/issues/248 [12]
-
 
 
 
@@ -2745,6 +2745,10 @@ Barth & West              Expires July 13, 2020                [Page 49]
 
 Internet-Draft  Cookies: HTTP State Management Mechanism    January 2020
 
+
+      *  Expanded the options for dealing with third-party cookies to
+         include a brief mention of partitioning based on first-party:
+         https://github.com/httpwg/http-extensions/issues/248 [12]
 
       *  Noted that double-quotes in cookie values are part of the
          value, and are not stripped: https://github.com/httpwg/http-
@@ -2771,6 +2775,13 @@ A.5.  draft-ietf-httpbis-rfc6265bis-04
    o  Allow "SameSite" cookies to be set for all top-level navigations.
       https://github.com/httpwg/http-extensions/issues/594 [18]
 
+   o  Treat "Set-Cookie: token" as creating the cookie "("", "token")":
+      https://github.com/httpwg/http-extensions/issues/159 [19]
+
+   o  Reject cookies with neither name nor value (e.g.  "Set-Cookie: ="
+      and "Set-Cookie:": https://github.com/httpwg/http-extensions/
+      issues/159 [20]
+
 Acknowledgements
 
    This document is a minor update of RFC 6265, adding small features,
@@ -2785,6 +2796,12 @@ Authors' Addresses
    URI:   https://www.adambarth.com/
 
 
+
+Barth & West              Expires July 13, 2020                [Page 50]
+
+Internet-Draft  Cookies: HTTP State Management Mechanism    January 2020
+
+
    Mike West
    Google, Inc
 
@@ -2797,4 +2814,43 @@ Authors' Addresses
 
 
 
-Barth & West              Expires July 13, 2020                [Page 50]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Barth & West              Expires July 13, 2020                [Page 51]
