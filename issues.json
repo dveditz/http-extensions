@@ -105,9 +105,9 @@
 
     ],
     "milestone": null,
-    "comments": 6,
+    "comments": 8,
     "created_at": "2020-01-09T04:43:55Z",
-    "updated_at": "2020-01-09T17:47:02Z",
+    "updated_at": "2020-01-09T22:24:24Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "The document implies that [server priorities *override* client ones](https://httpwg.org/http-extensions/draft-ietf-httpbis-priority.html#merging).  I think that is a mistake.  The current approach seems strongly biased toward the role that a gateway provides.\r\n\r\nBoth values provide some information and an intermediary can use that information as it chooses.  Including advice that suggests the server information might be more complete and thus worthy of greater attention is probably the right way to address this question.  I can definitely see gateways throwing out client priorities in favour of server ones, but you don't have to *require* that."
@@ -291,9 +291,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2020-01-09T04:35:14Z",
-    "updated_at": "2020-01-09T08:02:46Z",
+    "updated_at": "2020-01-10T01:29:05Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "The [explanation of the rationale behind assigning semantics to priority levels](https://httpwg.org/http-extensions/draft-ietf-httpbis-priority.html#why-do-urgencies-have-meanings) is not especially convincing.\r\n\r\nThe idea that we might have consistent labeling of priorities is something this shares with DSCP, but there the semantics are given more precise semantics than this document does for its levels.  If these semantics are to carry any weight, then it needs to be really clear what the client might expect a server to do with each different value.  It seems to me that if a server was to complete all requests at priority N before allocating anything other than opportunistic resources to N+1 then you get pretty much the semantics as described.  Priority 0 gets completed first, and 7 last.\r\n\r\nThe idea that different clients might share an understanding of different values is nice, but for that to work you need to trust that clients will label things similarly.  Right now, I don't see any incentive to do so.  If one implementation were to shift their priorities one higher or one lower, the effect probably wouldn't be any different.\r\n\r\nI do strongly agree with the idea that the number of buckets needs to be small.  8 is a reasonable number on balance.  But the associated trappings need far stronger motivation.\r\n\r\nKeep the last paragraph of that section though.  That concept deserves greater prominence in the document.  It does that by largely contradicting the argument for assigned semantics though."
@@ -403,9 +403,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 8,
     "created_at": "2020-01-09T04:21:20Z",
-    "updated_at": "2020-01-09T08:01:51Z",
+    "updated_at": "2020-01-10T03:33:18Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "There has been some debate about the relative utility of frames as a means of prioritizing and reprioritizing requests.  \r\n\r\nFrames are not guaranteed to be end-to-end and don't enjoy the benefits listed in [Section 8.1](https://httpwg.org/http-extensions/draft-ietf-httpbis-priority.html#why-use-an-end-to-end-header-field).  An (unlisted) reason is that the API for header fields is better understood and more likely to be available than a new and unspecified API.  HTTP/2 defined the use of frames for reprioritization, but APIs are not widely available, nor are they consistent.\r\n\r\nFrames provide two obvious benefits:\r\n\r\n1. They are scoped to the current connection and so only propagate if the receiving endpoint explicitly propagates them.\r\n\r\n2. They can be sent at any time.  This allows for reprioritization, but the requirement to have them sent after requests are complete means that they can't be sent \"on\" a stream, they have to instead refer to a stream, which complicates the design somewhat.  The proposal to allow trailers at any time helps a little here, but only to the extent that it remains possible to send.  Stream closure is used to terminate request bodies in some cases, making any trailer-based solution limited.\r\n\r\nHowever, frames have shortcomings too:\r\n\r\n1. They are complex.  The encoding of a header field into a frame is suboptimal, but necessary for extensibility and consistency reasons.  And the manner in which they refer to requests (or pushes) makes them more complex to manage than a header field.\r\n\r\n2. They are only scoped to a connection, which means that the extent of propagation can be non-deterministic.  In particular, they depend on the connection supporting the signaling.  This is the flip side of the benefit, and - in my opinion - outweighs it.\r\n\r\n3. The API is far more difficult compared to header fields.\r\n\r\nWe know little enough about the efficacy of prioritization that we should defer the definition of frames absent strong motivation for their efficacy and desirability.  The current document makes a good case for header fields, but the motivation for frames is weaker.  It is true that cases like escalation of a speculative fetch to blocking status are *theoretically* appealing, but those cases are rare and unlikely to benefit from reprioritization.  In particular, the mismatch between end-to-end and hop-by-hop (excuse the use of deprecated terminology) characteristics here makes it very hard to reason about the outcome.\r\n\r\nI know that others (@RyanAtGoogle in particular) have questions about the header field from a different angle and would prefer frames, exclusively.  So this probably comes down to having more discussion about which approach to take: headers, frames, or both.  \r\n\r\nIn either case, I would suggest that we have a need for both clear signals that the mechanism is broadly useful and evidence that that it is likely to be widely implemented.\r\n"
@@ -608,17 +608,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2019-12-27T10:25:55Z",
-    "updated_at": "2019-12-27T10:26:29Z",
-    "closed_at": null,
+    "updated_at": "2020-01-10T07:41:57Z",
+    "closed_at": "2020-01-10T07:41:56Z",
     "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/1017",
@@ -1369,9 +1369,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-12-06T16:47:19Z",
-    "updated_at": "2019-12-30T18:05:04Z",
+    "updated_at": "2020-01-09T22:02:18Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -18886,7 +18886,7 @@
         "description": null
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "mikewest",
@@ -18933,8 +18933,8 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2018-10-23T07:12:11Z",
-    "updated_at": "2019-12-29T14:35:11Z",
-    "closed_at": null,
+    "updated_at": "2020-01-10T07:41:56Z",
+    "closed_at": "2020-01-10T07:41:56Z",
     "author_association": "NONE",
     "body": "> Consider the scenario in which a user reads their email at MegaCorp Inc's webmail provider https://example.com/. They might expect that clicking on an emailed link to https://projects.com/secret/project would show them the secret project that they're authorized to see, but if projects.com has marked their session cookies as SameSite, then this cross-site navigation won't send them along with the request. projects.com will render a 404 error to avoid leaking secret information, and the user will be quite confused.\r\n\r\n\r\n`projects.com` is real domain. (currently not owned)\r\nseems better to use example domain in rfc."
   },
@@ -49575,7 +49575,7 @@
         "description": null
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "mikewest",
@@ -49620,10 +49620,10 @@
       }
     ],
     "milestone": null,
-    "comments": 6,
+    "comments": 7,
     "created_at": "2016-10-05T06:24:35Z",
-    "updated_at": "2019-12-29T15:07:11Z",
-    "closed_at": null,
+    "updated_at": "2020-01-10T07:40:23Z",
+    "closed_at": "2020-01-10T07:40:22Z",
     "author_association": "NONE",
     "body": "... are they two distinct cookies and in which order should they be sent?\n\n[on the list](https://lists.w3.org/Archives/Public/ietf-http-wg/2016OctDec/0046.html)\n"
   },
