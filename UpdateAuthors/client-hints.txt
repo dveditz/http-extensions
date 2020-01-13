@@ -5,7 +5,7 @@
 HTTP Working Group                                           I. Grigorik
 Internet-Draft                                                  Y. Weiss
 Intended status: Experimental                                     Google
-Expires: June 20, 2020                                 December 18, 2019
+Expires: July 16, 2020                                  January 13, 2020
 
 
                            HTTP Client Hints
@@ -53,16 +53,16 @@ Status of This Memo
 
 
 
-Grigorik & Weiss          Expires June 20, 2020                 [Page 1]
+Grigorik & Weiss          Expires July 16, 2020                 [Page 1]
 
-Internet-Draft              HTTP Client Hints              December 2019
+Internet-Draft              HTTP Client Hints               January 2020
 
 
-   This Internet-Draft will expire on June 20, 2020.
+   This Internet-Draft will expire on July 16, 2020.
 
 Copyright Notice
 
-   Copyright (c) 2019 IETF Trust and the persons identified as the
+   Copyright (c) 2020 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Grigorik & Weiss          Expires June 20, 2020                 [Page 2]
+Grigorik & Weiss          Expires July 16, 2020                 [Page 2]
 
-Internet-Draft              HTTP Client Hints              December 2019
+Internet-Draft              HTTP Client Hints               January 2020
 
 
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  12
@@ -165,9 +165,9 @@ Internet-Draft              HTTP Client Hints              December 2019
 
 
 
-Grigorik & Weiss          Expires June 20, 2020                 [Page 3]
+Grigorik & Weiss          Expires July 16, 2020                 [Page 3]
 
-Internet-Draft              HTTP Client Hints              December 2019
+Internet-Draft              HTTP Client Hints               January 2020
 
 
    Client Hints mitigate the performance concerns by assuring that
@@ -221,9 +221,9 @@ Internet-Draft              HTTP Client Hints              December 2019
 
 
 
-Grigorik & Weiss          Expires June 20, 2020                 [Page 4]
+Grigorik & Weiss          Expires July 16, 2020                 [Page 4]
 
-Internet-Draft              HTTP Client Hints              December 2019
+Internet-Draft              HTTP Client Hints               January 2020
 
 
 2.2.  Server Processing of Client Hints
@@ -277,9 +277,9 @@ Internet-Draft              HTTP Client Hints              December 2019
 
 
 
-Grigorik & Weiss          Expires June 20, 2020                 [Page 5]
+Grigorik & Weiss          Expires July 16, 2020                 [Page 5]
 
-Internet-Draft              HTTP Client Hints              December 2019
+Internet-Draft              HTTP Client Hints               January 2020
 
 
    For example, based on the Accept-CH example above, which is received
@@ -333,9 +333,9 @@ Internet-Draft              HTTP Client Hints              December 2019
 
 
 
-Grigorik & Weiss          Expires June 20, 2020                 [Page 6]
+Grigorik & Weiss          Expires July 16, 2020                 [Page 6]
 
-Internet-Draft              HTTP Client Hints              December 2019
+Internet-Draft              HTTP Client Hints               January 2020
 
 
    o  Entropy
@@ -389,9 +389,9 @@ Internet-Draft              HTTP Client Hints              December 2019
 
 
 
-Grigorik & Weiss          Expires June 20, 2020                 [Page 7]
+Grigorik & Weiss          Expires July 16, 2020                 [Page 7]
 
-Internet-Draft              HTTP Client Hints              December 2019
+Internet-Draft              HTTP Client Hints               January 2020
 
 
    Implementers SHOULD support Client Hints opt-in mechanisms and MUST
@@ -445,9 +445,9 @@ Internet-Draft              HTTP Client Hints              December 2019
 
 
 
-Grigorik & Weiss          Expires June 20, 2020                 [Page 8]
+Grigorik & Weiss          Expires July 16, 2020                 [Page 8]
 
-Internet-Draft              HTTP Client Hints              December 2019
+Internet-Draft              HTTP Client Hints               January 2020
 
 
 7.1.  Normative References
@@ -501,9 +501,9 @@ Internet-Draft              HTTP Client Hints              December 2019
 
 
 
-Grigorik & Weiss          Expires June 20, 2020                 [Page 9]
+Grigorik & Weiss          Expires July 16, 2020                 [Page 9]
 
-Internet-Draft              HTTP Client Hints              December 2019
+Internet-Draft              HTTP Client Hints               January 2020
 
 
 7.2.  Informative References
@@ -557,9 +557,9 @@ B.2.  Since -01
 
 
 
-Grigorik & Weiss          Expires June 20, 2020                [Page 10]
+Grigorik & Weiss          Expires July 16, 2020                [Page 10]
 
-Internet-Draft              HTTP Client Hints              December 2019
+Internet-Draft              HTTP Client Hints               January 2020
 
 
 B.3.  Since -02
@@ -613,9 +613,9 @@ Acknowledgements
 
 
 
-Grigorik & Weiss          Expires June 20, 2020                [Page 11]
+Grigorik & Weiss          Expires July 16, 2020                [Page 11]
 
-Internet-Draft              HTTP Client Hints              December 2019
+Internet-Draft              HTTP Client Hints               January 2020
 
 
 Authors' Addresses
@@ -669,4 +669,4 @@ Authors' Addresses
 
 
 
-Grigorik & Weiss          Expires June 20, 2020                [Page 12]
+Grigorik & Weiss          Expires July 16, 2020                [Page 12]
