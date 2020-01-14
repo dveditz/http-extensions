@@ -32,7 +32,15 @@
       "site_admin": false
     },
     "labels": [
-
+      {
+        "id": 329793151,
+        "node_id": "MDU6TGFiZWwzMjk3OTMxNTE=",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/6265bis",
+        "name": "6265bis",
+        "color": "fbca04",
+        "default": false,
+        "description": null
+      }
     ],
     "state": "open",
     "locked": false,
@@ -43,7 +51,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2020-01-13T00:01:26Z",
-    "updated_at": "2020-01-13T00:01:26Z",
+    "updated_at": "2020-01-13T00:04:33Z",
     "closed_at": null,
     "author_association": "FIRST_TIME_CONTRIBUTOR",
     "pull_request": {
@@ -103,9 +111,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2020-01-12T23:39:09Z",
-    "updated_at": "2020-01-13T00:00:39Z",
+    "updated_at": "2020-01-13T20:16:49Z",
     "closed_at": "2020-01-13T00:00:35Z",
     "author_association": "FIRST_TIME_CONTRIBUTOR",
     "pull_request": {
@@ -227,9 +235,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 2,
     "created_at": "2020-01-09T05:10:11Z",
-    "updated_at": "2020-01-09T05:10:11Z",
+    "updated_at": "2020-01-13T01:31:13Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "I'm getting a high failure rate on parsing `Preference-Applied` (but with a very low number of occurrences; it's not exactly a popular header).\r\n\r\nThe failure seems to occur because of keys like this: `odata.include-annotations=\"*\"`\r\n\r\nAllowing `.` in key would address this, but I'm not sure it's worth the change.\r\n\r\nAdditionally, key currently only allows lowercase alpha; this is mainly to avoid confusion between `foo` and `fOo`, etc. So far this seems to be pretty supportable in cache-control, accept-* and elsewhere, with the vast majority of headers seeming to choose the lowercase form. However, it does cause issues in a couple of cases:\r\n\r\n* In `Strict-Transport-Security`, the `includeSubDomains` parameter isn't compatible, leading to a high failure rate for that header\r\n* In cookies, this makes a number of things incompatible, but it's not clear that we can treat them as a direct mapping anyway."
@@ -676,9 +684,17 @@
       "site_admin": false
     },
     "labels": [
-
+      {
+        "id": 499581321,
+        "node_id": "MDU6TGFiZWw0OTk1ODEzMjE=",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/header-structure",
+        "name": "header-structure",
+        "color": "fbca04",
+        "default": false,
+        "description": null
+      }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -687,8 +703,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2020-01-08T00:32:37Z",
-    "updated_at": "2020-01-09T05:10:36Z",
-    "closed_at": null,
+    "updated_at": "2020-01-14T03:48:25Z",
+    "closed_at": "2020-01-14T03:48:24Z",
     "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/1019",
@@ -1593,6 +1609,15 @@
     },
     "labels": [
       {
+        "id": 111000923,
+        "node_id": "MDU6TGFiZWwxMTEwMDA5MjM=",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/editorial",
+        "name": "editorial",
+        "color": "009800",
+        "default": false,
+        "description": null
+      },
+      {
         "id": 886922813,
         "node_id": "MDU6TGFiZWw4ODY5MjI4MTM=",
         "url": "https://api.github.com/repos/httpwg/http-extensions/labels/variants",
@@ -1611,7 +1636,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-12-05T21:09:52Z",
-    "updated_at": "2019-12-11T03:19:42Z",
+    "updated_at": "2020-01-14T03:49:00Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "The introduction in the variants draft gives the following example:\r\n~~~\r\nHTTP/1.1 200 OK\r\nContent-Type: text/html\r\nContent-Language: en\r\nVary: Accept-Language\r\nVariants: Accept-Language;de;en;jp\r\nVariant-Key: en\r\nTransfer-Encoding: chunked\r\n~~~\r\n\r\nBut the syntax has since changed and now it is a dictionary, as of c392ad8836a21f57d1f175e8a264d881a56720ab:\r\n~~~\r\n   HTTP/1.1 200 OK\r\n   Content-Type: image/gif\r\n   Content-Language: en\r\n   Cache-Control: max-age=3600\r\n   Variants: Accept-Language=(en de)\r\n   Variant-Key: (en)\r\n   Vary: Accept-Language\r\n   Transfer-Encoding: chunked\r\n~~~"
@@ -1957,7 +1982,7 @@
         "description": null
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -1966,8 +1991,8 @@
     "milestone": null,
     "comments": 15,
     "created_at": "2019-12-04T02:01:16Z",
-    "updated_at": "2020-01-08T00:32:52Z",
-    "closed_at": null,
+    "updated_at": "2020-01-14T03:48:24Z",
+    "closed_at": "2020-01-14T03:48:24Z",
     "author_association": "CONTRIBUTOR",
     "body": "[RFC 7230 section 3.2.2](https://tools.ietf.org/html/rfc7230#section-3.2.2) allows a sender to generate multiple header fields with the same name, if the field is _defined as a comma-separated list [i.e., #(values)]_, and that such duplicates are semantically equivalent to them concatenated into a single header field.\r\n\r\nI think that this property has been useful for us, when annotating header fields.\r\n\r\nCan we allow such duplicates for Structured Headers too, when a list or a dictionary is being used? Note that we have merged #993 based on the assumption that it is okay to require the consumer of SH header fields to have the knowledge on what the top type is."
   },
