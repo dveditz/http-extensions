@@ -5,8 +5,8 @@
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
 Intended status: Standards Track                               P-H. Kamp
-Expires: July 13, 2020                         The Varnish Cache Project
-                                                        January 10, 2020
+Expires: July 17, 2020                         The Varnish Cache Project
+                                                        January 14, 2020
 
 
                       Structured Headers for HTTP
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                 [Page 1]
+Nottingham & Kamp         Expires July 17, 2020                 [Page 1]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -63,7 +63,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 13, 2020.
+   This Internet-Draft will expire on July 17, 2020.
 
 Copyright Notice
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                 [Page 2]
+Nottingham & Kamp         Expires July 17, 2020                 [Page 2]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -126,7 +126,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
        4.2.6.  Parsing a Token . . . . . . . . . . . . . . . . . . .  29
        4.2.7.  Parsing a Byte Sequence . . . . . . . . . . . . . . .  29
        4.2.8.  Parsing a Boolean . . . . . . . . . . . . . . . . . .  30
-   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  31
+   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  30
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .  31
    7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  31
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .  31
@@ -165,7 +165,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                 [Page 3]
+Nottingham & Kamp         Expires July 17, 2020                 [Page 3]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -221,7 +221,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                 [Page 4]
+Nottingham & Kamp         Expires July 17, 2020                 [Page 4]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -277,7 +277,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                 [Page 5]
+Nottingham & Kamp         Expires July 17, 2020                 [Page 5]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -333,7 +333,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                 [Page 6]
+Nottingham & Kamp         Expires July 17, 2020                 [Page 6]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -389,7 +389,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                 [Page 7]
+Nottingham & Kamp         Expires July 17, 2020                 [Page 7]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -445,7 +445,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                 [Page 8]
+Nottingham & Kamp         Expires July 17, 2020                 [Page 8]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -472,9 +472,9 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
    Parameters are an ordered map of key-values pairs that are associated
    with an item (Section 3.3) or inner-list (Section 3.1.1).  The keys
-   are required to be unique within the scope of a map of parameters,
-   and the values are bare items (i.e., they themselves cannot be
-   parameterised; see Section 3.3).
+   are unique within the scope of a map of parameters, and the values
+   are bare items (i.e., they themselves cannot be parameterised; see
+   Section 3.3).
 
    The ABNF for parameters in HTTP headers is:
 
@@ -501,7 +501,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                 [Page 9]
+Nottingham & Kamp         Expires July 17, 2020                 [Page 9]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -516,8 +516,8 @@ Internet-Draft         Structured Headers for HTTP          January 2020
    Dictionaries are ordered maps of name-value pairs, where the names
    are short, textual strings and the values are items (Section 3.3) or
    arrays of items, both of which can be parameterised (Section 3.1.2).
-   There can be zero or more members, and their names are required to be
-   unique in the scope of the dictionary they occur within.
+   There can be zero or more members, and their names are unique in the
+   scope of the dictionary they occur within.
 
    Implementations MUST provide access to dictionaries both by index and
    by name.  Specifications MAY use either means of accessing the
@@ -557,7 +557,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 10]
+Nottingham & Kamp         Expires July 17, 2020                [Page 10]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -613,7 +613,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 11]
+Nottingham & Kamp         Expires July 17, 2020                [Page 11]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -669,7 +669,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 12]
+Nottingham & Kamp         Expires July 17, 2020                [Page 12]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -725,7 +725,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 13]
+Nottingham & Kamp         Expires July 17, 2020                [Page 13]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -781,7 +781,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 14]
+Nottingham & Kamp         Expires July 17, 2020                [Page 14]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -837,7 +837,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 15]
+Nottingham & Kamp         Expires July 17, 2020                [Page 15]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -893,7 +893,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 16]
+Nottingham & Kamp         Expires July 17, 2020                [Page 16]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -949,7 +949,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 17]
+Nottingham & Kamp         Expires July 17, 2020                [Page 17]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -1005,7 +1005,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 18]
+Nottingham & Kamp         Expires July 17, 2020                [Page 18]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -1061,7 +1061,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 19]
+Nottingham & Kamp         Expires July 17, 2020                [Page 19]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -1117,7 +1117,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 20]
+Nottingham & Kamp         Expires July 17, 2020                [Page 20]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -1173,7 +1173,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 21]
+Nottingham & Kamp         Expires July 17, 2020                [Page 21]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -1229,7 +1229,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 22]
+Nottingham & Kamp         Expires July 17, 2020                [Page 22]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -1285,7 +1285,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 23]
+Nottingham & Kamp         Expires July 17, 2020                [Page 23]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -1302,52 +1302,49 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
    2.  While input_string is not empty:
 
-       1.   Let this_key be the result of running Parsing a Key
-            (Section 4.2.3.3) with input_string.
+       1.  Let this_key be the result of running Parsing a Key
+           (Section 4.2.3.3) with input_string.
 
-       2.   If dictionary already contains the name this_key, there is a
-            duplicate; fail parsing.
+       2.  If the first character of input_string is "=":
 
-       3.   If the first character of input_string is "=":
+           1.  Consume the first character of input_string.
 
-            1.  Consume the first character of input_string.
+           2.  Let member be the result of running Parsing an Item or
+               Inner List (Section 4.2.1.1) with input_string.
 
-            2.  Let member be the result of running Parsing an Item or
-                Inner List (Section 4.2.1.1) with input_string.
+       3.  Otherwise:
 
-       4.   Otherwise:
+           1.  Let value be Boolean true.
 
-            1.  Let value be Boolean true.
+           2.  Let parameters be an empty, ordered map.
 
-            2.  Let parameters be an empty, ordered map.
+           3.  Let member be the tuple (value, parameters).
 
-            3.  Let member be the tuple (value, parameters).
+       4.  Add name this_key with value member to dictionary.  If
+           dictionary already contains a name this_key (comparing
+           character-for-character), overwrite its value.
 
-       5.   Add name this_key with value member to dictionary.
+       5.  Discard any leading SP characters from input_string.
 
-       6.   Discard any leading SP characters from input_string.
+       6.  If input_string is empty, return dictionary.
 
-       7.   If input_string is empty, return dictionary.
+       7.  Consume the first character of input_string; if it is not
+           COMMA, fail parsing.
 
-       8.   Consume the first character of input_string; if it is not
-            COMMA, fail parsing.
+       8.  Discard any leading SP characters from input_string.
 
-       9.   Discard any leading SP characters from input_string.
-
-       10.  If input_string is empty, there is a trailing comma; fail
-            parsing.
-
-
-
-
-
-Nottingham & Kamp         Expires July 13, 2020                [Page 24]
-
-Internet-Draft         Structured Headers for HTTP          January 2020
-
+       9.  If input_string is empty, there is a trailing comma; fail
+           parsing.
 
    3.  No structured data has been found; return dictionary (which is
        empty).
+
+
+
+Nottingham & Kamp         Expires July 17, 2020                [Page 24]
+
+Internet-Draft         Structured Headers for HTTP          January 2020
+
 
 4.2.3.  Parsing an Item
 
@@ -1395,14 +1392,15 @@ Internet-Draft         Structured Headers for HTTP          January 2020
    values are bare items. input_string is modified to remove the parsed
    value.
 
+   1.  Let parameters be an empty, ordered map.
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 25]
+
+
+Nottingham & Kamp         Expires July 17, 2020                [Page 25]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
-
-   1.  Let parameters be an empty, ordered map.
 
    2.  While input_string is not empty:
 
@@ -1416,12 +1414,9 @@ Internet-Draft         Structured Headers for HTTP          January 2020
        4.  let param_name be the result of running Parsing a Key
            (Section 4.2.3.3) with input_string.
 
-       5.  If param_name is already present in parameters, there is a
-           duplicate; fail parsing.
+       5.  Let param_value be Boolean true.
 
-       6.  Let param_value be Boolean true.
-
-       7.  If the first character of input_string is "=":
+       6.  If the first character of input_string is "=":
 
            1.  Consume the "=" character at the beginning of
                input_string.
@@ -1429,7 +1424,9 @@ Internet-Draft         Structured Headers for HTTP          January 2020
            2.  Let param_value be the result of running Parsing a Bare
                Item (Section 4.2.3.1) with input_string.
 
-       8.  Append key param_name with value param_value to parameters.
+       7.  Append key param_name with value param_value to parameters.
+           If parameters already contains a name param_name (comparing
+           character-for-character), overwrite its value.
 
    3.  Return parameters.
 
@@ -1451,14 +1448,15 @@ Internet-Draft         Structured Headers for HTTP          January 2020
        2.  Let char be the result of removing the first character of
            input_string.
 
+       3.  Append char to output_string.
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 26]
+
+
+Nottingham & Kamp         Expires July 17, 2020                [Page 26]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
-
-       3.  Append char to output_string.
 
    4.  Return output_string.
 
@@ -1505,17 +1503,16 @@ Internet-Draft         Structured Headers for HTTP          January 2020
         5.  If type is "integer" and input_number contains more than 15
             characters, fail parsing.
 
+        6.  If type is "decimal" and input_number contains more than 16
+            characters, fail parsing.
 
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 27]
+Nottingham & Kamp         Expires July 17, 2020                [Page 27]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
-
-        6.  If type is "decimal" and input_number contains more than 16
-            characters, fail parsing.
 
    8.   If type is "integer":
 
@@ -1563,14 +1560,15 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
            3.  If next_char is not DQUOTE or "\", fail parsing.
 
+           4.  Append next_char to output_string.
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 28]
+
+
+Nottingham & Kamp         Expires July 17, 2020                [Page 28]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
-
-           4.  Append next_char to output_string.
 
        3.  Else, if char is DQUOTE, return output_string.
 
@@ -1616,19 +1614,17 @@ Internet-Draft         Structured Headers for HTTP          January 2020
    3.  If there is not a ":" character before the end of input_string,
        fail parsing.
 
-
-
-
-
-
-Nottingham & Kamp         Expires July 13, 2020                [Page 29]
-
-Internet-Draft         Structured Headers for HTTP          January 2020
-
-
    4.  Let b64_content be the result of consuming content of
        input_string up to but not including the first instance of the
        character ":".
+
+
+
+
+Nottingham & Kamp         Expires July 17, 2020                [Page 29]
+
+Internet-Draft         Structured Headers for HTTP          January 2020
+
 
    5.  Consume the ":" character at the beginning of input_string.
 
@@ -1672,19 +1668,19 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
    5.  No value has matched; fail parsing.
 
-
-
-
-
-
-Nottingham & Kamp         Expires July 13, 2020                [Page 30]
-
-Internet-Draft         Structured Headers for HTTP          January 2020
-
-
 5.  IANA Considerations
 
    This draft has no actions for IANA.
+
+
+
+
+
+
+Nottingham & Kamp         Expires July 17, 2020                [Page 30]
+
+Internet-Draft         Structured Headers for HTTP          January 2020
+
 
 6.  Security Considerations
 
@@ -1733,7 +1729,11 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 31]
+
+
+
+
+Nottingham & Kamp         Expires July 17, 2020                [Page 31]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -1789,7 +1789,7 @@ Internet-Draft         Structured Headers for HTTP          January 2020
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 32]
+Nottingham & Kamp         Expires July 17, 2020                [Page 32]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -1845,7 +1845,7 @@ B.1.  Why not JSON?
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 33]
+Nottingham & Kamp         Expires July 17, 2020                [Page 33]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -1901,7 +1901,7 @@ Appendix C.  Implementation Notes
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 34]
+Nottingham & Kamp         Expires July 17, 2020                [Page 34]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -1932,6 +1932,9 @@ D.1.  Since draft-ietf-httpbis-header-structure-14
    o  Round the fractional component of decimal, rather than truncating
       it (#982).
 
+   o  Handle duplicate dictionary and parameter keys by overwriting
+      their values, rather than failing (#997).
+
 D.2.  Since draft-ietf-httpbis-header-structure-13
 
    o  Editorial improvements.
@@ -1954,10 +1957,7 @@ D.2.  Since draft-ietf-httpbis-header-structure-13
 
 
 
-
-
-
-Nottingham & Kamp         Expires July 13, 2020                [Page 35]
+Nottingham & Kamp         Expires July 17, 2020                [Page 35]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -2013,7 +2013,7 @@ D.7.  Since draft-ietf-httpbis-header-structure-08
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 36]
+Nottingham & Kamp         Expires July 17, 2020                [Page 36]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -2069,7 +2069,7 @@ D.9.  Since draft-ietf-httpbis-header-structure-06
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 37]
+Nottingham & Kamp         Expires July 17, 2020                [Page 37]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -2125,7 +2125,7 @@ D.14.  Since draft-ietf-httpbis-header-structure-01
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 38]
+Nottingham & Kamp         Expires July 17, 2020                [Page 38]
 
 Internet-Draft         Structured Headers for HTTP          January 2020
 
@@ -2181,4 +2181,4 @@ Authors' Addresses
 
 
 
-Nottingham & Kamp         Expires July 13, 2020                [Page 39]
+Nottingham & Kamp         Expires July 17, 2020                [Page 39]
