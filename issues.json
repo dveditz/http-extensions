@@ -113,7 +113,7 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2020-01-12T23:39:09Z",
-    "updated_at": "2020-01-13T20:16:49Z",
+    "updated_at": "2020-01-15T13:01:59Z",
     "closed_at": "2020-01-13T00:00:35Z",
     "author_association": "FIRST_TIME_CONTRIBUTOR",
     "pull_request": {
@@ -291,9 +291,9 @@
 
     ],
     "milestone": null,
-    "comments": 8,
+    "comments": 10,
     "created_at": "2020-01-09T04:43:55Z",
-    "updated_at": "2020-01-10T14:22:11Z",
+    "updated_at": "2020-01-18T02:30:42Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "The document implies that [server priorities *override* client ones](https://httpwg.org/http-extensions/draft-ietf-httpbis-priority.html#merging).  I think that is a mistake.  The current approach seems strongly biased toward the role that a gateway provides.\r\n\r\nBoth values provide some information and an intermediary can use that information as it chooses.  Including advice that suggests the server information might be more complete and thus worthy of greater attention is probably the right way to address this question.  I can definitely see gateways throwing out client priorities in favour of server ones, but you don't have to *require* that."
@@ -477,9 +477,9 @@
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 5,
     "created_at": "2020-01-09T04:35:14Z",
-    "updated_at": "2020-01-10T01:29:05Z",
+    "updated_at": "2020-01-16T04:17:45Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "The [explanation of the rationale behind assigning semantics to priority levels](https://httpwg.org/http-extensions/draft-ietf-httpbis-priority.html#why-do-urgencies-have-meanings) is not especially convincing.\r\n\r\nThe idea that we might have consistent labeling of priorities is something this shares with DSCP, but there the semantics are given more precise semantics than this document does for its levels.  If these semantics are to carry any weight, then it needs to be really clear what the client might expect a server to do with each different value.  It seems to me that if a server was to complete all requests at priority N before allocating anything other than opportunistic resources to N+1 then you get pretty much the semantics as described.  Priority 0 gets completed first, and 7 last.\r\n\r\nThe idea that different clients might share an understanding of different values is nice, but for that to work you need to trust that clients will label things similarly.  Right now, I don't see any incentive to do so.  If one implementation were to shift their priorities one higher or one lower, the effect probably wouldn't be any different.\r\n\r\nI do strongly agree with the idea that the number of buckets needs to be small.  8 is a reasonable number on balance.  But the associated trappings need far stronger motivation.\r\n\r\nKeep the last paragraph of that section though.  That concept deserves greater prominence in the document.  It does that by largely contradicting the argument for assigned semantics though."
@@ -645,9 +645,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2020-01-08T09:25:08Z",
-    "updated_at": "2020-01-08T09:25:20Z",
+    "updated_at": "2020-01-18T15:53:49Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "## I expect\r\n\r\nSHA-1 to be deprecated in `digest-headers` because of https://sha-mbles.github.io/\r\n\r\n## Instead\r\n\r\nIt's NOT RECOMMENDED\r\n\r\n## Notes\r\n\r\nWhen we decided to NOT RECOMMEND sha-1, we knew that collisions were possible. \r\nNow researchers states that\r\n\r\n```\r\nWe have computed the very first chosen-prefix collision for SHA-1. In a nutshell, this means a complete and practical break of the SHA-1 hash function, with dangerous practical implications if you are still using this hash function. To put it in another way: all attacks that are practical on MD5 are now also practical on SHA-1\r\n```\r\n\r\nThe latest paper is here https://eprint.iacr.org/2020/014.pdf \r\n"
@@ -755,9 +755,9 @@
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 3,
     "created_at": "2020-01-03T12:21:49Z",
-    "updated_at": "2020-01-10T07:44:09Z",
+    "updated_at": "2020-01-14T05:23:09Z",
     "closed_at": "2020-01-10T07:44:07Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -809,9 +809,9 @@
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 3,
     "created_at": "2019-12-27T10:25:55Z",
-    "updated_at": "2020-01-10T07:41:57Z",
+    "updated_at": "2020-01-14T05:27:39Z",
     "closed_at": "2020-01-10T07:41:56Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -927,9 +927,9 @@
 
     ],
     "milestone": null,
-    "comments": 5,
+    "comments": 11,
     "created_at": "2019-12-22T09:46:47Z",
-    "updated_at": "2020-01-08T11:28:09Z",
+    "updated_at": "2020-01-15T22:30:47Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "@mikewest's Fetch Metadata will add a bunch of headers that are supposedly structured headers, but given their simplicity can be compared using equality on servers. If servers did that it would likely prevent adding parameters in the future however or making other supposedly-compatible extensions.\r\n\r\nShould we accept this for headers clients transmit to servers or should we do something akin to TLS's GREASE?"
@@ -1556,7 +1556,7 @@
         "description": "Issues related to digest-headers"
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -1565,8 +1565,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-12-06T16:47:19Z",
-    "updated_at": "2020-01-09T22:02:18Z",
-    "closed_at": null,
+    "updated_at": "2020-01-19T14:47:38Z",
+    "closed_at": "2020-01-19T14:47:37Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/1004",
@@ -3347,7 +3347,7 @@
         "description": "Issues related to digest-headers"
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -3356,8 +3356,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-11-02T18:34:33Z",
-    "updated_at": "2019-11-02T18:34:40Z",
-    "closed_at": null,
+    "updated_at": "2020-01-19T14:47:39Z",
+    "closed_at": "2020-01-19T14:47:39Z",
     "author_association": "CONTRIBUTOR",
     "body": "## I expect\r\n\r\nan example with a  failed PATCH \r\n\r\n## Note\r\n\r\nDepending on the PATCH semantic it may return:\r\n- the Digest and etag of the unpatch item (if that is what happens);\r\n- the Digest of the error."
   },
@@ -9602,17 +9602,17 @@
         "description": "Issues related to digest-headers"
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 10,
+    "comments": 11,
     "created_at": "2019-07-22T20:01:56Z",
-    "updated_at": "2019-11-04T12:36:24Z",
-    "closed_at": null,
+    "updated_at": "2020-01-18T15:57:57Z",
+    "closed_at": "2020-01-18T15:57:57Z",
     "author_association": "CONTRIBUTOR",
     "body": "It would be awesome if this could relate directly to [SRI](https://w3c.github.io/webappsec-subresource-integrity/).  Ideally, if SRI uses the same hash function, the value in the `Digest` header field is the same."
   },
