@@ -4,9 +4,9 @@
 
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
-Updates: 7234 (if approved)                             January 14, 2020
+Updates: 7234 (if approved)                             January 19, 2020
 Intended status: Standards Track
-Expires: July 17, 2020
+Expires: July 22, 2020
 
 
                       HTTP Representation Variants
@@ -49,11 +49,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 17, 2020.
+   This Internet-Draft will expire on July 22, 2020.
 
 
 
-Nottingham                Expires July 17, 2020                 [Page 1]
+Nottingham                Expires July 22, 2020                 [Page 1]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Nottingham                Expires July 17, 2020                 [Page 2]
+Nottingham                Expires July 22, 2020                 [Page 2]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -165,7 +165,7 @@ Internet-Draft        HTTP Representation Variants          January 2020
 
 
 
-Nottingham                Expires July 17, 2020                 [Page 3]
+Nottingham                Expires July 22, 2020                 [Page 3]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -221,7 +221,7 @@ Internet-Draft        HTTP Representation Variants          January 2020
 
 
 
-Nottingham                Expires July 17, 2020                 [Page 4]
+Nottingham                Expires July 22, 2020                 [Page 4]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -277,7 +277,7 @@ Internet-Draft        HTTP Representation Variants          January 2020
 
 
 
-Nottingham                Expires July 17, 2020                 [Page 5]
+Nottingham                Expires July 22, 2020                 [Page 5]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -333,7 +333,7 @@ Internet-Draft        HTTP Representation Variants          January 2020
 
 
 
-Nottingham                Expires July 17, 2020                 [Page 6]
+Nottingham                Expires July 22, 2020                 [Page 6]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -389,7 +389,7 @@ Internet-Draft        HTTP Representation Variants          January 2020
 
 
 
-Nottingham                Expires July 17, 2020                 [Page 7]
+Nottingham                Expires July 22, 2020                 [Page 7]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -445,7 +445,7 @@ Internet-Draft        HTTP Representation Variants          January 2020
 
 
 
-Nottingham                Expires July 17, 2020                 [Page 8]
+Nottingham                Expires July 22, 2020                 [Page 8]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -501,7 +501,7 @@ Internet-Draft        HTTP Representation Variants          January 2020
 
 
 
-Nottingham                Expires July 17, 2020                 [Page 9]
+Nottingham                Expires July 22, 2020                 [Page 9]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -557,7 +557,7 @@ Internet-Draft        HTTP Representation Variants          January 2020
 
 
 
-Nottingham                Expires July 17, 2020                [Page 10]
+Nottingham                Expires July 22, 2020                [Page 10]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -613,7 +613,7 @@ Internet-Draft        HTTP Representation Variants          January 2020
 
 
 
-Nottingham                Expires July 17, 2020                [Page 11]
+Nottingham                Expires July 22, 2020                [Page 11]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -669,7 +669,7 @@ Internet-Draft        HTTP Representation Variants          January 2020
 
 
 
-Nottingham                Expires July 17, 2020                [Page 12]
+Nottingham                Expires July 22, 2020                [Page 12]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -725,7 +725,7 @@ Internet-Draft        HTTP Representation Variants          January 2020
 
 
 
-Nottingham                Expires July 17, 2020                [Page 13]
+Nottingham                Expires July 22, 2020                [Page 13]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -781,7 +781,7 @@ Internet-Draft        HTTP Representation Variants          January 2020
 
 
 
-Nottingham                Expires July 17, 2020                [Page 14]
+Nottingham                Expires July 22, 2020                [Page 14]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -837,7 +837,7 @@ Internet-Draft        HTTP Representation Variants          January 2020
 
 
 
-Nottingham                Expires July 17, 2020                [Page 15]
+Nottingham                Expires July 22, 2020                [Page 15]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -893,7 +893,7 @@ Internet-Draft        HTTP Representation Variants          January 2020
 
 
 
-Nottingham                Expires July 17, 2020                [Page 16]
+Nottingham                Expires July 22, 2020                [Page 16]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -949,7 +949,7 @@ Internet-Draft        HTTP Representation Variants          January 2020
 
 
 
-Nottingham                Expires July 17, 2020                [Page 17]
+Nottingham                Expires July 22, 2020                [Page 17]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -1005,7 +1005,7 @@ Internet-Draft        HTTP Representation Variants          January 2020
 
 
 
-Nottingham                Expires July 17, 2020                [Page 18]
+Nottingham                Expires July 22, 2020                [Page 18]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -1061,7 +1061,7 @@ A.1.  Accept
 
 
 
-Nottingham                Expires July 17, 2020                [Page 19]
+Nottingham                Expires July 22, 2020                [Page 19]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -1117,7 +1117,7 @@ A.3.  Accept-Language
 
 
 
-Nottingham                Expires July 17, 2020                [Page 20]
+Nottingham                Expires July 22, 2020                [Page 20]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -1173,7 +1173,7 @@ A.4.  Cookie
 
 
 
-Nottingham                Expires July 17, 2020                [Page 21]
+Nottingham                Expires July 22, 2020                [Page 21]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -1229,7 +1229,7 @@ Acknowledgements
 
 
 
-Nottingham                Expires July 17, 2020                [Page 22]
+Nottingham                Expires July 22, 2020                [Page 22]
 
 Internet-Draft        HTTP Representation Variants          January 2020
 
@@ -1285,4 +1285,4 @@ Author's Address
 
 
 
-Nottingham                Expires July 17, 2020                [Page 23]
+Nottingham                Expires July 22, 2020                [Page 23]

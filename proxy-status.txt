@@ -5,8 +5,8 @@
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
 Intended status: Standards Track                               P. Sikora
-Expires: July 17, 2020                                            Google
-                                                        January 14, 2019
+Expires: July 22, 2020                                            Google
+                                                        January 19, 2019
 
 
                    The Proxy-Status HTTP Header Field
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 17, 2020.
+   This Internet-Draft will expire on July 22, 2020.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Nottingham & Sikora       Expires July 17, 2020                 [Page 1]
+Nottingham & Sikora       Expires July 22, 2020                 [Page 1]
 
 Internet-Draft                Proxy-Status                  January 2019
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Nottingham & Sikora       Expires July 17, 2020                 [Page 2]
+Nottingham & Sikora       Expires July 22, 2020                 [Page 2]
 
 Internet-Draft                Proxy-Status                  January 2019
 
@@ -165,7 +165,7 @@ Internet-Draft                Proxy-Status                  January 2019
 
 
 
-Nottingham & Sikora       Expires July 17, 2020                 [Page 3]
+Nottingham & Sikora       Expires July 22, 2020                 [Page 3]
 
 Internet-Draft                Proxy-Status                  January 2019
 
@@ -221,7 +221,7 @@ Internet-Draft                Proxy-Status                  January 2019
 
 
 
-Nottingham & Sikora       Expires July 17, 2020                 [Page 4]
+Nottingham & Sikora       Expires July 22, 2020                 [Page 4]
 
 Internet-Draft                Proxy-Status                  January 2019
 
@@ -277,7 +277,7 @@ Internet-Draft                Proxy-Status                  January 2019
 
 
 
-Nottingham & Sikora       Expires July 17, 2020                 [Page 5]
+Nottingham & Sikora       Expires July 22, 2020                 [Page 5]
 
 Internet-Draft                Proxy-Status                  January 2019
 
@@ -333,7 +333,7 @@ Internet-Draft                Proxy-Status                  January 2019
 
 
 
-Nottingham & Sikora       Expires July 17, 2020                 [Page 6]
+Nottingham & Sikora       Expires July 22, 2020                 [Page 6]
 
 Internet-Draft                Proxy-Status                  January 2019
 
@@ -389,7 +389,7 @@ Internet-Draft                Proxy-Status                  January 2019
 
 
 
-Nottingham & Sikora       Expires July 17, 2020                 [Page 7]
+Nottingham & Sikora       Expires July 22, 2020                 [Page 7]
 
 Internet-Draft                Proxy-Status                  January 2019
 
@@ -445,7 +445,7 @@ Internet-Draft                Proxy-Status                  January 2019
 
 
 
-Nottingham & Sikora       Expires July 17, 2020                 [Page 8]
+Nottingham & Sikora       Expires July 22, 2020                 [Page 8]
 
 Internet-Draft                Proxy-Status                  January 2019
 
@@ -501,7 +501,7 @@ Internet-Draft                Proxy-Status                  January 2019
 
 
 
-Nottingham & Sikora       Expires July 17, 2020                 [Page 9]
+Nottingham & Sikora       Expires July 22, 2020                 [Page 9]
 
 Internet-Draft                Proxy-Status                  January 2019
 
@@ -557,7 +557,7 @@ Internet-Draft                Proxy-Status                  January 2019
 
 
 
-Nottingham & Sikora       Expires July 17, 2020                [Page 10]
+Nottingham & Sikora       Expires July 22, 2020                [Page 10]
 
 Internet-Draft                Proxy-Status                  January 2019
 
@@ -613,7 +613,7 @@ Internet-Draft                Proxy-Status                  January 2019
 
 
 
-Nottingham & Sikora       Expires July 17, 2020                [Page 11]
+Nottingham & Sikora       Expires July 22, 2020                [Page 11]
 
 Internet-Draft                Proxy-Status                  January 2019
 
@@ -669,7 +669,7 @@ Internet-Draft                Proxy-Status                  January 2019
 
 
 
-Nottingham & Sikora       Expires July 17, 2020                [Page 12]
+Nottingham & Sikora       Expires July 22, 2020                [Page 12]
 
 Internet-Draft                Proxy-Status                  January 2019
 
@@ -725,7 +725,7 @@ Internet-Draft                Proxy-Status                  January 2019
 
 
 
-Nottingham & Sikora       Expires July 17, 2020                [Page 13]
+Nottingham & Sikora       Expires July 22, 2020                [Page 13]
 
 Internet-Draft                Proxy-Status                  January 2019
 
@@ -781,7 +781,7 @@ Internet-Draft                Proxy-Status                  January 2019
 
 
 
-Nottingham & Sikora       Expires July 17, 2020                [Page 14]
+Nottingham & Sikora       Expires July 22, 2020                [Page 14]
 
 Internet-Draft                Proxy-Status                  January 2019
 
@@ -837,7 +837,7 @@ Internet-Draft                Proxy-Status                  January 2019
 
 
 
-Nottingham & Sikora       Expires July 17, 2020                [Page 15]
+Nottingham & Sikora       Expires July 22, 2020                [Page 15]
 
 Internet-Draft                Proxy-Status                  January 2019
 
@@ -893,7 +893,7 @@ Internet-Draft                Proxy-Status                  January 2019
 
 
 
-Nottingham & Sikora       Expires July 17, 2020                [Page 16]
+Nottingham & Sikora       Expires July 22, 2020                [Page 16]
 
 Internet-Draft                Proxy-Status                  January 2019
 
@@ -949,7 +949,7 @@ Internet-Draft                Proxy-Status                  January 2019
 
 
 
-Nottingham & Sikora       Expires July 17, 2020                [Page 17]
+Nottingham & Sikora       Expires July 22, 2020                [Page 17]
 
 Internet-Draft                Proxy-Status                  January 2019
 
@@ -1005,4 +1005,4 @@ Authors' Addresses
 
 
 
-Nottingham & Sikora       Expires July 17, 2020                [Page 18]
+Nottingham & Sikora       Expires July 22, 2020                [Page 18]
