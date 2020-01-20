@@ -645,9 +645,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2020-01-08T09:25:08Z",
-    "updated_at": "2020-01-18T15:53:49Z",
+    "updated_at": "2020-01-19T14:48:54Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "## I expect\r\n\r\nSHA-1 to be deprecated in `digest-headers` because of https://sha-mbles.github.io/\r\n\r\n## Instead\r\n\r\nIt's NOT RECOMMENDED\r\n\r\n## Notes\r\n\r\nWhen we decided to NOT RECOMMEND sha-1, we knew that collisions were possible. \r\nNow researchers states that\r\n\r\n```\r\nWe have computed the very first chosen-prefix collision for SHA-1. In a nutshell, this means a complete and practical break of the SHA-1 hash function, with dangerous practical implications if you are still using this hash function. To put it in another way: all attacks that are practical on MD5 are now also practical on SHA-1\r\n```\r\n\r\nThe latest paper is here https://eprint.iacr.org/2020/014.pdf \r\n"
@@ -927,9 +927,9 @@
 
     ],
     "milestone": null,
-    "comments": 11,
+    "comments": 24,
     "created_at": "2019-12-22T09:46:47Z",
-    "updated_at": "2020-01-15T22:30:47Z",
+    "updated_at": "2020-01-20T03:08:55Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "@mikewest's Fetch Metadata will add a bunch of headers that are supposedly structured headers, but given their simplicity can be compared using equality on servers. If servers did that it would likely prevent adding parameters in the future however or making other supposedly-compatible extensions.\r\n\r\nShould we accept this for headers clients transmit to servers or should we do something akin to TLS's GREASE?"
@@ -14969,7 +14969,7 @@
         "description": null
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -14978,8 +14978,8 @@
     "milestone": null,
     "comments": 24,
     "created_at": "2019-03-11T14:32:26Z",
-    "updated_at": "2020-01-07T10:21:11Z",
-    "closed_at": null,
+    "updated_at": "2020-01-20T10:42:02Z",
+    "closed_at": "2020-01-20T10:42:01Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/776",
