@@ -4,7 +4,7 @@
 
 HTTP Working Group                                          M. West, Ed.
 Internet-Draft                                               Google, Inc
-Obsoletes: 6265 (if approved)                                J. Wilander
+Obsoletes: 6265 (if approved)                           J. Wilander, Ed.
 Intended status: Standards Track                              Apple, Inc
 Expires: July 23, 2020                                  January 20, 2020
 
@@ -2829,7 +2829,7 @@ Authors' Addresses
    URI:   https://mikewest.org/
 
 
-   John Wilander
+   John Wilander (editor)
    Apple, Inc
 
    Email: wilander@apple.com
